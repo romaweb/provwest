@@ -28,11 +28,12 @@
   }
 
   &__header {
+    flex: 0 1 auto;
     @include adaptiveValue("margin-bottom", 25, 15);
 
     @include mq(md) {
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
       justify-content: space-between;
       column-gap: rem(20);
     }
@@ -46,34 +47,55 @@
     }
   }
 
-  &__title-block {
-    // margin-bottom: rem(15);
+  // &__header-block {
+  //   background-color: red;
+  // }
+
+  &__header-block {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: rem(10);
     @include adaptiveValue("margin-bottom", 35, 25, $md, $minWidth, 3);
 
-    @include mq(xs) {
-      width: rem(380);
+    @include mq(sm) {
+      column-gap: rem(20);
+      flex-direction: row;
     }
 
-    // @include mq(sm) {
-    //   margin-bottom: 0;
+
+    // @include mq(md) {
+    //   width: calc(50% - rem(20));
     // }
 
-    @include mq(md) {
-      width: calc(50% - rem(20));
-    }
+    // @include mq(lg) {
+    //   width: rem(490);
+    // }
 
-    @include mq(lg) {
-      width: rem(490);
-    }
+    // @include mq(xl) {
+    //   width: rem(600);
+    // }
+  }
 
-    @include mq(xl) {
-      width: rem(600);
+  &__header-title {
+    @include mq(sm) {
+      flex: 0 0 percent(300, 990);
     }
+  }
+
+  &__header-inner {
+    
+  }
+
+  &__header-text {
+    &:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 16);	
+		}
   }
 
   &__tabs-nav {
     @include mq(md) {
-      flex: 1 1 auto;
+      flex: 0 0 auto;
     }
   }
 
@@ -366,4 +388,81 @@
     color: $theme;
     font-size: rem(24);
   }
+}
+
+.location-form {
+    
+  &__title {
+      @include adaptiveValue("margin-bottom", 30, 20);
+  }
+  &__body {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      @include adaptiveValue("row-gap", 35, 30, $lg, $minWidth, 1);
+      @include adaptiveValue("margin-bottom", 45, 35, $lg, $minWidth, 1);
+  }
+
+
+  &__fields-wrap {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      @include adaptiveValue("row-gap", 40, 30, $lg, $minWidth, 1);
+
+      @include mq(md) {
+          flex-direction: row;
+          column-gap: rem(20);
+
+          .call-form__field:first-child {
+              flex: 0 1 70%;
+          }
+
+          .call-form__field:last-child {
+              flex: 1 1 auto;
+          }
+      }
+
+      @include mq(lg) {
+          column-gap: rem(30);
+      }
+
+  }
+
+  &__radios {
+    display: flex;
+    align-items: stretch;
+    gap: rem(16);
+    flex-wrap: wrap;
+  }
+
+  &__radios-item {
+    flex: 0 1 30%;
+  }
+
+  &__label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: rem(8);
+      color: $black;
+      line-height: 1.2;
+  }
+
+  &__field {
+      position: relative;
+  }
+
+  &__field-error {
+      position: absolute;
+      top: calc(100% + rem(5));
+  }
+
+  &__btn {
+      width: 100%;
+
+      &:not(:last-child) {
+          @include adaptiveValue("margin-bottom", 35, 25, $lg, $minWidth, 1);
+      }
+  }
+
 }

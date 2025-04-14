@@ -266,15 +266,24 @@
 		<section class="tariffs tabs" id="tariffs">
 			<div class="tariffs__container">
 				<div class="tariffs__header">
-					<div class="tariffs__title-block title-block">
-						<h2 class="title-block__title section-title">Тарифи</h2>
-						<div class="title-block__text text">
-							<p>Тарифи розроблені з урахуванням потреб наших користувачів, а також конкурентних цін на
-								ринку.</p>
+					<div class="tariffs__header-block">
+						<h2 class="tariffs__header-title section-title">Тарифи</h2>
+						<div class="tariffs__header-inner">
+							<div class="tariffs__header-text text">
+								<p>Вартість тарифів може змінюватися, залежно від населеного пункту, будь-ласка, оберіть Ваш населенний пункт</p>
+							</div>
+							<a href="#location-popup" class="tariffs__header-location-btn location-btn location-btn--border _icon-marker popup-link">
+								<span class="location-btn__text">Полонне</span>
+								<span class="location-btn__icon _icon-left"></span>
+							</a>
 						</div>
+						
+						
 					</div>
 
-					<div class="tabs__nav">
+					
+
+					<div class="tariffs__tabs-nav tabs__nav">
 						<a href="#" class="tabs__nav-lnk _active">Домашній інтернет</a>
 						<a href="#" class="tabs__nav-lnk">Телебачення</a>
 					</div>
@@ -308,7 +317,7 @@
 
 									<div class="tarif-card__footer">
 										<a href="#call-popup" class="tarif-card__btn btn popup-link">Підключити</a>
-										<a href="#" class="tarif-card__more btn-link _icon-left">Детально про тариф</a>
+										<!-- <a href="#" class="tarif-card__more btn-link _icon-left">Детально про тариф</a> -->
 									</div>
 								</div>
 
@@ -338,7 +347,7 @@
 
 									<div class="tarif-card__footer">
 										<a href="#call-popup" class="tarif-card__btn btn popup-link">Підключити</a>
-										<a href="#" class="tarif-card__more btn-link _icon-left">Детально про тариф</a>
+										<!-- <a href="#" class="tarif-card__more btn-link _icon-left">Детально про тариф</a> -->
 									</div>
 								</div>
 
@@ -368,7 +377,7 @@
 
 									<div class="tarif-card__footer">
 										<a href="#call-popup" class="tarif-card__btn btn popup-link">Підключити</a>
-										<a href="#" class="tarif-card__more btn-link _icon-left">Детально про тариф</a>
+										<!-- <a href="#" class="tarif-card__more btn-link _icon-left">Детально про тариф</a> -->
 									</div>
 								</div>
 
@@ -376,11 +385,11 @@
 						</div>
 					</div>
 
-					<div class="tariffs__notification notification">
+					<!-- <div class="tariffs__notification notification">
 						<span class="notification__icon _icon-megaphone"></span>
 						<p class="notification__text">Вартість тарифів може змінюватися, залежно від населеного пункту,
 							будь-ласка, уточняйте в служби підтримки</p>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="tariffs__tabs-content tabs__content">
@@ -1363,6 +1372,65 @@
 						</div>
 						<button type="submit" class="call-form__btn btn">Перевірити</button>
 						<p class="call-form__conditions">Відправляючи заявку ви автоматично погоджуєтесь з умовами щодо <a href="">політики конфінденційності</a></p>
+					</form>
+	
+				</div>
+			</div>
+		</div>
+
+		<div class="popup" id="location-popup">
+			<div class="popup__body">
+				<div class="popup__content">
+					<button type="button" class="btn-close btn-close--theme _icon-close popup__close close-popup"></button>
+					<form action="#" class="popup__form call-form">
+						<h3 class="location-form__title popup-title popup-title--small">Виберіть ваш населенний пункт</h3>
+						<div class="location-form__body">
+
+							<div class="location-form__field">
+								<label class="location-form__label" for="">Область</label>
+								<div class="location-form__radios">
+									<label class="location-form__radios-item custom-radio">
+										<input type="radio" name="region" class="custom-radio__input" checked="">
+										<div class="custom-radio__content">Хмельницька</div>
+									</label>
+									<label class="location-form__radios-item custom-radio">
+										<input type="radio" name="region" class="custom-radio__input" checked="">
+										<div class="custom-radio__content">Житомирська</div>
+									</label>
+								</div>
+				
+							</div>
+							<div class="location-form__field">
+								<label class="call-form__label" for="district">Район</label>
+								<div class="call-form__select custom-select">
+									<select name="" id="district">
+										<option value="" selected>Оберіть район</option>
+										<option value="">Option 2</option>
+										<option value="">Option 3</option>
+										<option value="">Option 4</option>
+										<option value="">Option 5</option>
+									</select>
+								</div>
+				
+								<!-- <p class="connection-form__field-error field-error">Поле не повинно бути пустим</p> -->
+							</div>
+
+							<div class="location-form__field">
+								<label class="call-form__label" for="locality">Населений пункт</label>
+								<div class="call-form__select custom-select">
+									<select name="" id="locality">
+										<option value="" selected>Ваш населений пункт</option>
+										<option value="">Option 2</option>
+										<option value="">Option 3</option>
+										<option value="">Option 4</option>
+										<option value="">Option 5</option>
+									</select>
+								</div>
+				
+								<!-- <p class="connection-form__field-error field-error">Поле не повинно бути пустим</p> -->
+							</div>
+						</div>
+						<button type="submit" class="location-form__btn btn">Обрати</button>
 					</form>
 	
 				</div>

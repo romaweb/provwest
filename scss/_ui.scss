@@ -75,9 +75,9 @@
 	line-height: 1.15;
 	@include adaptiveValue("font-size", 36, 26, $lg, $minWidth, 1);
 
-	// @include mq(xl) {
-	// 	font-size: rem(36);
-	// }
+	&--small {
+		@include adaptiveValue("font-size", 28, 22, $lg, $minWidth, 1);
+	}
 
 
 }

@@ -1,0 +1,57 @@
+.custom-select {
+	position: relative;
+	width: 100%;
+	// border: rem(1) solid $black;
+    font-weight: 500;
+	// border-radius: rem(6);
+	overflow: hidden;
+	// background-color: $bglightGrey;
+
+
+	&::before {
+		font-family: "icons";
+        position: absolute;
+        top: 20%;
+		// @include centerY;
+        display: block;
+		right: rem(12);
+        transform: rotate(-90deg);
+        transform-origin: center center;
+		color: $theme;
+		content: "\e90a";
+		@include adaptiveValue("font-size", 18, 16);
+	}
+
+	&:focus select{
+		border-color: $theme;
+	}
+
+
+	select {
+		@extend %inputReset;
+        @include adaptiveValue("padding-left", 15, 10);
+	    @include adaptiveValue("padding-right", 15, 10);
+	    @include adaptiveValue("height", 55, 45, $lg, $minWidth, 1);
+		display: block;
+		position: relative;
+		resize: none;
+		width: 100%;
+		@include adaptiveValue("font-size", 16, 14);
+		color: $text;
+        border-radius: rem(6);
+        border: rem(1) solid $black;
+
+        &:focus {
+            border-color: $theme;
+        }
+
+        
+
+		&:disabled {
+			cursor: not-allowed;
+			// color: $tMediumGrey;
+			// background-color: $bglightGrey;
+		}
+	}
+
+}

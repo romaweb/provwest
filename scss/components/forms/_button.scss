@@ -115,6 +115,60 @@
 	}
 }
 
+.location-btn {
+	@extend %btnReset;
+	display: inline-flex;
+	align-items: center;
+	// flex-direction: row-reverse;
+	font-weight: 600;
+	color: $black;
+	font-size: rem(16);
+	line-height: 1.4;
+	padding-top: rem(8);
+	padding-bottom: rem(8);
+	border-radius: rem(6);
+	@include adaptiveValue("padding-left", 40, 28, $lg, $minWidth, 1);
+	@include adaptiveValue("padding-right", 40, 28, $lg, $minWidth, 1);
+	transition: all $globalTransition;
+
+
+	&::before {
+		flex: 0 0 auto;
+		margin-right: rem(5);
+		color: $theme;
+		display: block;
+		flex: 0 0 auto;
+		font-size: rem(24);
+		// transform: rotate(180deg);
+		transition: all $globalTransition;
+	}
+
+	&__icon {
+		flex: 0 0 auto;
+		margin-left: rem(5);
+		color: $theme;
+		display: block;
+		flex: 0 0 auto;
+		font-size: rem(18);
+		transform: rotate(180deg);
+		transition: all $globalTransition;
+	}
+
+	@include hover {
+		color: $theme;
+	}
+
+	&--border {
+		border: rem(1) solid $accent;
+
+		@include hover {
+			border-color: $theme;
+		}
+	}
+}
+
+
+
 .arrow-link {
 	@include adaptiveValue("width", 65, 55, $lg, $minWidth, 1);
 	@include adaptiveValue("height", 65, 55, $lg, $minWidth, 1);
