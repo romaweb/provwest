@@ -1,0 +1,196 @@
+.about {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+
+    @include mq(xl) {
+        padding-top: rem(110);
+        padding-bottom: rem(130);
+    }
+
+    &__container {
+    }
+
+    &__header {
+        @include adaptiveValue("margin-bottom", 35, 20);
+        
+        @include mq(sm) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(15);
+        
+        @include mq(sm) {
+            flex: 0 1 70%;
+            margin-bottom: 0;
+        }
+
+        @include mq(lg) {
+            flex: 0 1 rem(800);
+        }
+
+        @include mq(xl) {
+            flex: 0 1 rem(1120);
+        }
+    }
+
+    &__btn {
+       @include mq(sm) {
+        margin-top: rem(20);
+       }
+    }
+
+    &__body {
+        @include mq(md) {
+            display: flex;
+            column-gap: rem(20);
+        }
+
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 50, 40, $md, $minWidth, 3);
+
+        @include mq(xs) {
+           width: rem(380);
+        }
+    
+        @include mq(md) {
+            flex: 0 0 rem(380);
+        }
+    
+        @include mq(lg) {
+            flex: 0 0 rem(490);
+        }
+
+
+    }
+
+    &__video-img {
+        position: relative;
+        display: block;
+        
+        // overflow: hidden;
+        img {
+            @include imgFluid;
+            overflow: hidden;
+            @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+        }
+
+        @include mq(md) {
+            margin-top: rem(10);
+        }
+
+    }
+
+    &__play-btn {
+        transform: translateY(50%);
+        bottom: 0;
+        right: rem(30);
+
+        @include mq(md) {
+            right: auto;
+            left: 0;
+            transform: translate(-50%, 50%);
+        }
+    }
+
+}
+
+
+.play-btn {
+    
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	@include adaptiveValue("width", 100, 60, $lg, $minWidth, 1);
+	@include adaptiveValue("height", 100, 60, $lg, $minWidth, 1);
+	@include adaptiveValue("font-size", 36, 28, $lg, $minWidth, 1);
+	background-color: $theme;
+	border-radius: 50%;
+    transition: all $globalTransition;
+    transform-origin: center center;
+    // display: none;
+
+	&::after,
+	&::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+  		border-radius: 100%;
+  		background-color: $theme;
+  		position: absolute;
+  		top: 0;
+  		right: 0;
+  		bottom: 0;
+  		left: 0;
+  		margin: auto;
+  		transform: scale(0.5);
+  		transform-origin: center center;
+  		animation: pulse-small 3s linear infinite;
+	}
+
+	&::after {
+		animation-delay: 2s;
+	}
+
+    span {
+        display: inline-flex;
+        align-items: center;
+        justify-items: center;
+    }
+
+	@include mq(xl) {
+		font-size: rem(52);
+		width: rem(130);
+		height: rem(130);
+	}
+    
+    @include hover {
+        bottom: rem(-5);
+
+        @include mq(md) {
+            bottom: rem(-10);
+        }
+        // background-color: $themeBgLight;
+
+        // &::after,
+        // &::before {
+        //     background-color: $themeBgLight;
+        // }
+    }
+}
+
+
+.video {
+	overflow: hidden;
+
+	&__item {
+		position: relative;
+		padding-top: 56%;
+	}
+
+	video,
+	iframe {
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}

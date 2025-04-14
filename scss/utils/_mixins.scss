@@ -1,0 +1,163 @@
+// --- Mixins ---
+
+// Responsive image
+@mixin imgFluid($display: inline-block) {
+	display: $display;
+	max-width: 100%;
+	height: auto;
+}
+
+@mixin hover() {
+	@media(any-hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+// // Reset Buttons
+// @mixin btn-reset() {
+// 	border: none;
+// 	margin: 0;
+// 	padding: 0;
+// 	width: auto;
+// 	overflow: visible;
+// 	background: transparent;
+// 	color: inherit;
+// 	font: inherit;
+// }
+
+// // Reset Input
+// @mixin input-reset() {
+// 	box-sizing: border-box;
+// 	border: 0;
+// 	background-color: transparent;
+// 	box-shadow: none;
+// 	border-radius: 0;
+// 	appearance: none;
+
+// 	&:focus {
+// 		outline: 0;
+// 	}
+// }
+
+// // Reset List
+// @mixin list-reset {
+// 	list-style: none;
+// 	padding: 0;
+// 	margin: 0;
+
+// 	li {
+// 		list-style-image: none;
+// 		list-style-type: none;
+// 		padding: 0;
+// 		margin: 0;
+// 	}
+// }
+// // Center Elements
+@mixin centerXY() {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin centerX() {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin centerY() {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+// Media Query
+@mixin mq($from: false, $until: false, $and: false, $media-type: all) {
+	$min-width: 0;
+	$max-width: 0;
+	$media-query: "";
+
+	@if $from {
+		@if type-of($from) == number {
+			$min-width: $from;
+		} @else {
+			$min-width: map-get($mqBreakpoints, $from);
+		}
+	}
+
+	@if $until {
+		@if type-of($until) == number {
+			$max-width: $until - 1px;
+		} @else {
+			$max-width: map-get($mqBreakpoints, $until) - 1px;
+		}
+	}
+
+	@if $min-width != 0 {
+		$media-query: "#{$media-query} and (min-width: #{$min-width})";
+	}
+	@if $max-width != 0 {
+		$media-query: "#{$media-query} and (max-width: #{$max-width})";
+	}
+	@if $and {
+		$media-query: "#{$media-query} and #{$and}";
+	}
+
+	// Remove unnecessary media query prefix 'all and '
+	@if ($media-type == "all" and $media-query != "") {
+		$media-type: "";
+		$media-query: str-slice(unquote($media-query), 6);
+	}
+
+	@media #{$media-type + $media-query} {
+		@content;
+	}
+}
+
+
+@mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
+	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+		$widthFrom: $maxWidth;
+	}
+	// Брейк-поинты в EM
+	$widthFromMedia: em($widthFrom);
+	$widthToMedia: em($widthTo);
+
+	// Формула плавающего значения
+	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+	$yIntersection: -$widthTo * $slope + $minSize;
+	$flyValue: #{rem($yIntersection)}" + " #{$slope * 100}vw;
+
+	$propertyValue: #{"clamp(" rem($minSize) "," $flyValue "," rem($startSize) ")"};
+
+	@if $widthFrom == $containerWidth or $widthFrom == $maxWidth or $keepSize == 1 or $keepSize == 2 {
+		@media (min-width: $widthFromMedia) {
+			#{$property}: rem($startSize);
+		}
+	}
+	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
+		#{$property}: $propertyValue;
+	}
+	@if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+		@media (max-width: $widthToMedia) {
+			#{$property}: rem($minSize);
+		}
+	}
+}
+
+// visuallyHidden
+@mixin visuallyHidden() {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important; // Fix for https://github.com/twbs/bootstrap/issues/25686
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+  }

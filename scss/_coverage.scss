@@ -1,0 +1,72 @@
+.coverage {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+
+    @include mq(xl) {
+        padding-top: rem(120);
+        padding-bottom: rem(130);
+    }
+    
+
+    &__container {
+        @include mq(md) {
+            display: flex;
+        }
+    }
+
+    &__title-block {
+        margin-top: rem(-40);
+
+        @include mq(sm) {
+            margin-top: rem(-80); 
+        }
+
+        @include mq(md) {
+            margin: 0;
+            flex: 0 0 auto;
+            order: 1;
+            max-width: calc(50% - rem(10));
+        }
+
+        @include mq(md) {
+            flex: 0 0 auto;
+            order: 1;
+            max-width: calc(50% - rem(10));
+        }
+
+        @include mq(lg) {
+            max-width: rem(600);
+            
+        }
+
+        @include mq(xl) {
+            max-width: rem(650);
+        }
+       
+
+    }
+
+    &__map {
+        position: relative;
+        z-index: -1;
+
+
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(md) {
+            
+            order: 2;
+            @include adaptiveValue("margin-left", -250, -150, $lg, $md, 1);
+        }
+    }
+
+    &__location-marker {
+        position: absolute;
+        top: 23%;
+        left: 24%;
+    }
+}
+
+

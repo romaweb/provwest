@@ -1,0 +1,237 @@
+.donate {
+    background-color: $lightGrey;
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-right-radius", 45, 25, $lg, $minWidth, 1);
+
+    @include mq(xl) {
+        padding-top: rem(110);
+        padding-bottom: rem(130);
+        border-radius: rem(60) rem(60) 0 0;
+    }
+
+    &__container {
+    }
+
+    &__header {
+        position: relative;
+        @include adaptiveValue("margin-bottom", 35, 20);
+
+        @include mq(md) {
+            display: flex;
+            align-items: flex-end;
+            // flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
+    &__title {
+
+        @include mq(md) {
+            width: rem(600);
+        }
+
+        @include mq(lg) {
+            width: rem(800);
+        }
+
+        @include mq(xl) {
+            width: rem(1120);
+        }
+    }
+
+    &__header-img {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        max-width: rem(500);
+        margin-top: rem(-150);
+        margin-bottom: rem(-50);
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(md) {
+            position: absolute;
+            bottom: rem(-50);
+            right: 0;
+            // max-width: 100%;
+            margin: 0;
+            @include adaptiveValue("max-width", 450, 400, $lg, $md, 1);
+            // width: rem(550);
+            // margin-bottom: 0;
+        }
+
+        @include mq(xl) {
+            max-width: rem(550);
+        }
+    }
+
+    &__body {
+        @include mq(md) {
+            display: flex;
+            column-gap: rem(40);
+        }
+
+        @include mq(xl) {
+            display: flex;
+            column-gap: rem(130);
+        }
+    }
+
+    &__text {
+        @include adaptiveValue("margin-bottom", 30, 15);
+    }
+
+    &__info {
+        @include adaptiveValue("margin-bottom", 35, 25, $md, $minWidth, 3);
+        @include mq(md) {
+            width: rem(400);
+            flex: 0 0 auto;
+        }
+
+        @include mq(lg) {
+            width: rem(600);
+        }
+    }
+
+    &__details {
+        @include mq(sm) {
+            display: flex;
+            align-items: flex-start;
+            column-gap: rem(20);
+            flex: 1 1 auto;
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include adaptiveValue("margin-bottom", 25, 15);
+
+        @include mq(sm) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__qr-img {
+        @include adaptiveValue("max-width", 260, 200);
+        img {
+            @include imgFluid;
+        }
+    }
+
+    &__qr-title {
+        text-align: center;
+    }
+
+    &__details-body {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       @include adaptiveValue("row-gap", 25, 15);
+
+       @include mq(sm) {
+        align-items: flex-start;
+       }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include mq(sm) {
+            align-items: flex-start;
+           }
+    }
+
+    &__item-title {
+        @include adaptiveValue("margin-bottom", 10, 5);
+    }
+
+    &__cart-number {
+        background-color: $white;
+        border-radius: rem(6);
+        padding: rem(8) rem(15);
+        display: inline-block;
+    }
+
+    &__lnk {
+        display: inline-block;
+        @include adaptiveValue("font-size", 18, 14, $lg, $minWidth, 1);
+		line-height: 1.2;
+		font-weight: 600;
+		color: $theme;
+        transition: all $globalTransition;
+
+        @include hover {
+            color: $themeBgLight;
+        }
+    }
+}
+
+.donate-nav {
+    background-color: $lightGrey;
+    padding-top: rem(30);
+
+    &--inner {
+        padding-bottom: rem(30);
+    }
+
+    @include mq(lg) {
+        padding-top: 0;
+        padding-bottom: rem(30);
+    }
+    &__container {
+        
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $themeBgLight;
+        padding: rem(10) rem(20);
+        border-radius: rem(8);
+        column-gap: rem(20);
+
+        @include mq(md) {
+            justify-content: space-between;
+        }
+
+        @include mq(lg) {
+            padding: rem(12) rem(30);
+            column-gap: rem(20);
+        }
+    }
+
+    &__btn {
+        flex: 0 1 auto;
+    }
+
+    &__decor {
+        display: none;
+        @include mq(md) {
+            display: flex;
+            align-items: center;
+            column-gap: rem(10);
+        }
+    }
+
+    &__img {
+        img {
+            @include imgFluid;
+        }
+    }
+}

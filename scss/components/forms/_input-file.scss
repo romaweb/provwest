@@ -1,0 +1,44 @@
+
+.input-file {
+
+	&__input {
+		@include visuallyHidden;
+
+		&:focus+.input-file__label {
+			color: $black;
+		}
+
+		&+.input-file__label:hover {
+			@include hover {
+				color: $themeColor;
+			}
+		}
+
+		&+.input-file__label * {
+			pointer-events: none;
+		}
+	}
+
+	&__label {
+		font-weight: 600;
+		font-size: rem(16);
+		color: $black;
+		letter-spacing: em(.5, 13);
+		display: inline-flex;
+		align-items: center;
+		text-transform: uppercase;
+		transition: all $globalTransition;
+		cursor: pointer;
+
+		&::before {
+			@extend %ic;
+			content: "\e90f";
+			flex: 0 0 auto;
+			margin-right: rem(2);
+			font-size: rem(30);
+			color: $themeColor;
+		}
+		
+	}
+
+}

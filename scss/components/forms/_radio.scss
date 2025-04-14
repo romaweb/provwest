@@ -1,0 +1,170 @@
+.radio {
+	// display: inline-flex;
+	display: flex;
+	cursor: pointer;
+	position: relative;
+	// background-color: red;
+	padding-left: rem(25);
+
+
+	&__content {
+		display: block;
+		margin: 0;
+		color: $black;
+		font-size: rem(16);
+
+		&--rows {
+			@include mq(sm) {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				gap: rem(20);
+			}
+			// justify-content: space-between;
+		}
+
+		
+	}
+
+	&__content-price {
+		color: $black;
+		font-weight: 600;
+
+		@include mq(sm) {
+			flex: 0	0 auto;
+		}
+	}
+
+	&__input {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: rem(2);
+		left: 0;
+		height: rem(17);
+		width: rem(17);
+		appearance: none;
+		outline: none;
+		border: rem(1) solid $black;
+		border-radius: 50%;
+		background-color: transparent;
+		cursor: pointer;
+
+		&:checked {
+			border-color: $themeColor;
+			// background-color: $themeColor;
+		}
+
+		&:disabled {
+			border-color: $border;
+			cursor: not-allowed;
+		}
+
+		&:disabled + .radio__content {
+			cursor: not-allowed;
+			opacity: .6;
+		}
+
+
+		&:checked::before {
+			content: '';
+			display: block;
+			width: rem(9);
+			height: rem(9);
+			background-color: $themeColor;
+			border-radius: 50%;
+		}
+	}
+}
+
+.number-radio {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(10) rem(10);
+
+	&__item {
+		display: block;
+		cursor: pointer;
+	}
+
+	&__input {
+		display: none;
+		appearance: none;
+		outline: none;
+
+		&:checked~.number-radio__value {
+			color: $themeColor;
+			border-color: $themeColor;
+		}
+
+		&:disabled~.number-radio__value  {
+			border-color: $border;
+			cursor: not-allowed;
+			color: $text;
+		}
+
+		&:focus {
+			display: none;
+		appearance: none;
+		outline: none;
+		}
+	}
+
+	&__value {
+		display: inline-flex;
+		font-weight: 600;
+		font-size: rem(16);
+		color: $black;
+		padding: rem(7) rem(10);
+		border: rem(1) solid $black;
+	}
+}
+
+.color-radio {
+	display: flex;
+	flex-wrap: wrap;
+	gap: rem(10) rem(10);
+
+	&__item {
+		display: block;
+		cursor: pointer;
+	}
+
+	&__input {
+		display: none;
+
+		&:checked ~ .color-radio__value::after {
+			border-color: $black;
+		}
+
+		&:disabled ~ .color-radio__value  {
+			opacity: .4;
+			cursor: not-allowed;
+
+			&::after {
+				opacity: 1;
+				border-color: $border;
+			}
+		}
+	}
+
+	&__value {
+		display: inline-flex;
+		position: relative;
+		width: rem(24);
+		height: rem(24);
+		margin: rem(3);
+		border-radius: 50%;
+
+		&::after {
+			content: '';
+			@include centerXY;
+			width: rem(30);
+			height: rem(30);
+			border-radius: 50%;
+			border: rem(1) solid $border;
+
+		}
+	}
+}

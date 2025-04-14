@@ -1,0 +1,55 @@
+// Reset Buttons
+
+%btnReset {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+}
+
+// Reset Input
+%inputReset {
+	box-sizing: border-box;
+	border: 0;
+	background-color: transparent;
+	box-shadow: none;
+	border-radius: 0;
+	appearance: none;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+// Reset textarea
+%textareaReset {
+	box-sizing: border-box;
+	border: 0;
+	background-color: transparent;
+	box-shadow: none;
+	border-radius: 0;
+	appearance: none;
+	resize: none;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+//img
+%ibg {
+	position: relative;
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}

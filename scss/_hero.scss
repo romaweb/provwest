@@ -1,0 +1,149 @@
+.hero {
+    background-color: $lightGrey;
+    padding-top: rem(30);
+
+    @include mq(lg) {
+        padding-top: 0;
+    }
+
+    &__container {
+    }
+
+    &__slider {
+        position: relative;
+        background-color: $white;
+        @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+        overflow: hidden;
+        padding: rem(20);
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            margin: auto;
+            @include adaptiveValue("width", 450, 320, $sm, $minWidth, 1);
+            @include adaptiveValue("padding-top", 450, 320, $sm, $minWidth, 1);
+            @include adaptiveValue("bottom", -360, -220, $sm, $minWidth, 1);
+            right: 0;
+            left: 0;
+            z-index: 0;
+            border-radius: 100%;
+            background-color: $themeBgLight;
+        }
+
+        @include mq(sm) {
+            // padding-bottom: rem(30);
+
+            &::after {
+                @include adaptiveValue("width", 700, 320, $xl, $sm, 1);
+                @include adaptiveValue("padding-top", 700, 320, $xl, $sm, 1);
+                bottom: -55%;
+                left: auto;
+                right: rem(20);
+            }
+        }
+
+
+        @include mq(lg) {
+            padding: rem(30);
+            // padding-bottom: rem(50);
+
+            &::after {
+                
+                right: rem(30);
+            }
+        }
+
+        @include mq(xl) {
+            padding: rem(50);
+            // padding-bottom: rem(80);
+
+            &::after {
+                
+                right: rem(50);
+            }
+        }
+    }
+
+    &__slide {
+        @include mq(sm) {
+            display: flex;
+            align-items: center;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(100);
+        }
+    }
+
+
+    &__title-block {
+        margin-bottom: rem(20);
+        @include mq(sm) {
+            margin: 0;
+            flex: 0 0 calc(55% - rem(10));
+        }
+
+        @include mq(lg) {
+            flex: 0 0 rem(540);
+        }
+
+        @include mq(xl) {
+            flex: 0 0 rem(650);
+        }
+
+        .title-block__title {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 30, 15);
+            }
+        }
+    }
+
+    &__text {
+    }
+
+    &__img {
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(xs) {
+            max-width: rem(420);
+            margin: auto;
+        }
+
+        @include mq(sm) {
+            flex: 1 1 auto;
+            max-width: 100%;
+        }
+    }
+
+    &__controls {
+        padding-top: rem(20);
+        display: flex;
+        align-items: center;
+    }
+
+    &__pagination {
+        flex: 0 0 auto;
+        margin: auto;
+        
+        @include mq(lg) {
+            transform: translateX(-50%);
+        }
+    }
+
+    &__slider-arrows {
+        display: none;
+
+        @include mq(lg) {
+            display: flex;
+        }
+    }
+}
+

@@ -1,0 +1,225 @@
+.features {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 90, 70, $md, $minWidth, 1);
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-right-radius", 45, 25, $lg, $minWidth, 1);
+    background-color: $lightGrey;
+
+    @include mq(md) {
+        @include adaptiveValue("padding-bottom", 140, 120, $lg, $md, 1);
+    }
+
+    @include mq(xl) {
+        border-radius: rem(60) rem(60) 0 0;
+        padding-top: rem(110);
+        padding-bottom: rem(160);
+    }
+    &__container {
+
+        @include mq(md) {
+            display: flex;
+            align-items: flex-start;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(130);
+        }
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 25, 15, $md, $minWidth, 3);
+        
+
+        @include mq(xs) {
+            width: rem(380);
+        }
+
+        @include mq(md) {
+            @include adaptiveValue("width", 385, 300, $lg, $md, 2); 
+            flex: 0 0 auto;
+        }
+
+        @include mq(lg) {
+            flex: 0 0 auto; 
+        }
+
+        @include mq(xl) {
+            width: rem(520); 
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        row-gap: rem(20);
+
+        @include mq(sm) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: rem(20);
+        }
+
+        @include mq(md) {
+            flex: 1 1 auto; 
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+            row-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__item {
+       @include mq(sm) {
+            flex: 0 1 calc(50% - rem(10));
+       }
+
+       @include mq(md) {
+        &:nth-child(odd) {
+            bottom: rem(-40);
+        }
+   }
+
+       @include mq(lg) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+
+        @include mq(xl) {
+            flex: 0 1 calc(50% - rem(25));
+        }
+    }
+
+    
+}
+
+.feature-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: rem(32);
+    background-color: $white;
+    padding: rem(30) rem(20);
+    @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+    box-shadow: 0px rem(5) 0px 0px $border;
+    transition: all $globalTransition;
+
+    @include hover {
+        transform: translateY(rem(5));
+        // bottom: rem(-5);
+        box-shadow: none;
+    }
+
+    @include mq(lg) {
+        padding: rem(40) rem(30);
+    }
+    @include mq(xl) {
+        margin-top: rem(38);
+    }
+    
+
+    &__icon {
+        position: absolute;
+        top: rem(-32);
+        right: rem(20);
+        font-size: rem(38);
+        color: $white;
+        width: rem(64);
+        height: rem(64);
+        border-radius: 50%;
+        background-color: $theme;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+
+        @include mq(lg) {
+            right: rem(30);
+        }
+
+        @include mq(xl) {
+            width: rem(76);
+            height: rem(76);
+            font-size: rem(48);
+            top: rem(-38);
+        }
+    }
+
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 5, 2);
+    }
+
+    &__text {
+    }
+}
+
+
+// .feature-item {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: stretch;
+    
+
+//     &__icon {
+//         display: inline-block;
+//         font-size: rem(38);
+//         color: $white;
+//         width: rem(64);
+//         height: rem(64);
+//         border-radius: 50%;
+//         background-color: $theme;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         // transform: translateY(50%);
+//         margin-bottom: rem(-32);
+//         z-index: 1;
+//         position: relative;
+//         margin-left: auto;
+//         margin-right: rem(20);
+
+//         @include mq(lg) {
+//             margin-right: rem(30);
+//         }
+
+//         @include mq(xl) {
+//             width: rem(76);
+//             height: rem(76);
+//             font-size: rem(48);
+//             margin-bottom: rem(-38);
+
+//         }
+//     }
+
+//     &__body {
+//         background-color: $white;
+//         flex: 1 1 auto;
+//         overflow: hidden;
+//         padding: rem(30) rem(20);
+//         @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+//         box-shadow: 0px rem(5) 0px 0px $border;
+
+//         @include mq(lg) {
+//             padding: rem(40) rem(30);
+//         }
+//     }
+
+//     &__title {
+//         @include adaptiveValue("margin-bottom", 5, 2);
+//     }
+
+//     &__text {
+//     }
+// }
+

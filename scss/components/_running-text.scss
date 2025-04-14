@@ -1,0 +1,35 @@
+.running-text {
+    display: flex;
+    column-gap: rem(80);
+
+    overflow: hidden;
+    background-color: $theme;
+    padding: rem(10) 0 rem(12);
+
+    &__item {
+        flex-shrink: 0;
+        animation: text 30s infinite linear;
+        display: block;
+	    color: $white;
+	    font-family: $secondaryFont;
+	    font-style: normal;
+	    font-weight: 600;
+	    line-height: 1.15;
+	    @include adaptiveValue("font-size", 36, 16, $lg, $minWidth, 1);
+
+        @include mq(xl) {
+            font-size: rem(46);
+        }
+
+    }
+}
+
+@keyframes text {
+	0%{
+	  transform: translate(0, 0);
+	}
+	
+	100%{
+	  transform: translate(-100%, 0);
+	}
+  }

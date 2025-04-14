@@ -1,0 +1,111 @@
+.faqz {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+
+    @include mq(xl) {
+        padding-top: rem(110);
+    }
+
+    &__container {
+        @include mq(md) {
+            display: flex;
+            align-items: flex-start;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(130);
+        }
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 40, 30, $md, $minWidth, 3);
+        padding-bottom: rem(5);
+
+        @include mq(xs) {
+            width: rem(380);
+        }
+
+        @include mq(md) {
+            @include adaptiveValue("width", 385, 300, $lg, $md, 2); 
+            flex: 0 0 auto;
+        }
+
+        @include mq(lg) {
+            flex: 0 0 auto; 
+        }
+
+        @include mq(xl) {
+            width: rem(520); 
+        }
+    }
+
+    &__body {
+        @include mq(md) {
+            margin-top: rem(20);
+            flex: 1 1 100%;
+        }
+    }
+
+    &__item {
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 15, 10);
+        }
+    }
+}
+
+
+.faqz-item {
+
+    &._init {
+
+		.faqz-item__title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: row-reverse;
+			transition: color $globalTransition;
+
+			@include hover {
+				color: $theme;
+				cursor: pointer;
+			}
+		}
+
+		.faqz-item__title:before {
+			content: "\e90a";
+			font-family: "icons";
+			transform: rotate(-90deg);
+			color: $theme;
+			font-size: rem(20);
+			transition: transform $globalTransition;
+		}
+
+		.faqz-item__title._active::before {
+			transform-origin: center center;
+			transform: rotate(90deg);
+		}
+
+	}
+
+    &__title {
+        
+    }
+
+    &__content {
+        @include adaptiveValue("margin-top", 15, 10);
+        background-color: $lightGrey;
+        @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+        padding: rem(10) rem(20);
+
+        @include mq(lg) {
+            padding: rem(20) rem(30);
+        }
+    }
+}
+.small-title {
+}

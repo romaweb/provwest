@@ -1,0 +1,736 @@
+.blog {
+  @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+
+  @include mq(xl) {
+    padding-top: rem(110);
+  }
+  &__container {
+  }
+
+  &__header {
+    @include adaptiveValue("margin-bottom", 45, 25);
+
+    @include mq(sm) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      column-gap: rem(20);
+    }
+
+    @include mq(lg) {
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(50);
+    }
+  }
+
+  &__title-block {
+    margin-bottom: rem(15);
+
+    @include mq(xs) {
+      width: rem(380);
+    }
+
+    @include mq(sm) {
+      margin-bottom: 0;
+    }
+
+    @include mq(md) {
+      width: calc(50% - rem(20));
+    }
+
+    @include mq(lg) {
+      width: rem(490);
+    }
+
+    @include mq(xl) {
+      width: rem(600);
+    }
+  }
+
+  &__btn {
+    @include mq(sm) {
+      margin-top: rem(30);
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: rem(25);
+
+    @include mq(sm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: rem(20);
+      row-gap: rem(30);
+    }
+
+
+    @include mq(lg) {
+      column-gap: rem(30);
+      row-gap: rem(40);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(50);
+      row-gap: rem(50);
+    }
+  }
+
+  &__list {
+    @include mq(sm) {
+      flex: 1 1 100%;
+    }
+
+    @include mq(lg) {
+      order: 1;
+      flex: 0 1 calc(100% / 3 - rem(60) / 3);
+    }
+
+    @include mq(xl) {
+      flex: 0 1 calc(100% / 3 - rem(100) / 3);
+    }
+  }
+
+  &__card {
+    @include mq(sm) {
+      flex: 0 1 calc(50% - rem(20) / 2);
+    }
+
+    @include mq(lg) {
+      flex: 0 1 calc(100% / 3 - rem(60) / 3);
+      order: 3;
+    }
+
+    @include mq(xl) {
+      flex: 0 1 calc(100% / 3 - rem(100) / 3);
+    }
+  }
+
+  &__card-img {
+  }
+}
+
+.blog-page {
+  // min-height: 100%;
+  background-color: $lightGrey;
+  @include adaptiveValue("padding-top", 35, 25, $md, $minWidth, 1);
+  @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
+  @include adaptiveValue(
+    "border-bottom-left-radius",
+    45,
+    25,
+    $lg,
+    $minWidth,
+    1
+  );
+  @include adaptiveValue(
+    "border-bottom-right-radius",
+    45,
+    25,
+    $lg,
+    $minWidth,
+    1
+  );
+
+  @include mq(xl) {
+    padding-top: rem(55);
+    padding-bottom: rem(110);
+    border-radius: 0 0 rem(60) rem(60);
+  }
+
+  &__menu {
+    @include adaptiveValue("margin-bottom", 30, 20, $lg, $minWidth, 1);
+  }
+
+  &__title {
+    @include adaptiveValue("margin-bottom", 45, 30, $lg, $minWidth, 1);
+  }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: rem(25);
+
+    @include mq(sm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: rem(20);
+      row-gap: rem(30);
+    }
+
+    @include mq(lg) {
+      column-gap: rem(30);
+      row-gap: rem(40);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(50);
+      row-gap: rem(50);
+    }
+  }
+
+  &__card {
+    @include mq(sm) {
+      flex: 0 1 calc(50% - rem(10));
+    }
+
+    @include mq(lg) {
+      flex: 0 1 calc(100% / 2 - rem(30) / 2);
+    }
+
+    @include mq(xl) {
+      flex: 0 1 calc(100% / 2 - rem(50) / 2);
+    }
+  }
+
+  &__card-wide {
+    flex: 0 0 100%;
+    margin-bottom: rem(20);
+  }
+
+  &__paginator {
+    @include adaptiveValue("margin-top", 40, 20, $lg, $minWidth, 1);
+  }
+
+  &__body {
+    @include mq(md) {
+      display: flex;
+      align-items: flex-start;
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(80);
+    }
+  }
+
+  &__inner {
+    min-width: 0;
+    @include adaptiveValue("margin-bottom", 50, 30, $md, $minWidth, 3);
+
+    @include mq(md) {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__sidebar {
+
+
+    @include mq(md) {
+      position: sticky;
+      top: 0;
+      margin-top: rem(20);
+      flex: 0 0 rem(386);
+    }
+
+    @include mq(xl) {
+      flex: 0 0 rem(470);
+    }
+  }
+}
+
+.blog-list {
+  @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+  background-color: $themeBgLight;
+  padding: rem(15) rem(20);
+
+  @include mq(lg) {
+    padding: rem(25) rem(30);
+  }
+
+  &__row {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 8, $lg, $minWidth, 1);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(2);
+    transition: all $globalTransition;
+
+    @include hover {
+      color: $theme;
+    }
+
+    @include mq(xl) {
+      margin-bottom: rem(5);
+    }
+  }
+
+  &__pub-date {
+  }
+}
+
+.pub-date {
+  display: inline-block;
+  font-size: rem(12);
+  font-weight: 600;
+  font-family: $secondaryFont;
+
+  &--white {
+    color: $white;
+  }
+
+  &--large {
+    font-size: rem(14);
+  }
+}
+.blog-card {
+
+  @include hover {
+    img {
+      transform: scale(1.02);
+  }
+  }
+  &__header {
+    position: relative;
+    @include adaptiveValue("margin-bottom", 10, 5);
+  }
+
+  &__img {
+    display: block;
+    @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+    overflow: hidden;
+    @extend %ibg;
+    padding-top: 67%;
+
+    @include mq(xl) {
+      padding-top: 65%;
+    }
+
+    img {
+      transition: all $globalTransition;
+    }
+  }
+
+  &__info {
+    @include adaptiveValue("margin-bottom", 10, 5);
+    display: flex;
+    align-items: center;
+    column-gap: rem(15);
+    row-gap: rem(5);
+
+    @include mq(lg) {
+      column-gap: rem(20);
+    }
+  }
+
+  &__pub-date {
+    flex: 0 1 auto;
+  }
+
+  &__category {
+    flex: 0 1 auto;
+  }
+
+  &__link-wrap {
+    position: absolute;
+    bottom: 0;
+    right: rem(20);
+    transform: translateY(50%);
+
+    @include mq(lg) {
+      right: rem(30);
+    }
+  }
+
+  &__link {
+  }
+
+  &__title {
+    display: inline-block;
+    transition: all $globalTransition;
+
+    @include hover {
+      color: $theme;
+    }
+  }
+}
+
+.blog-category {
+  @include adaptiveValue("font-size", 16, 14, $lg, $minWidth, 1);
+  flex: 0 1 auto;
+  font-weight: 600;
+  color: $theme;
+  transition: all $globalTransition;
+  @include hover {
+    color: $themeBgLight;
+  }
+}
+
+.blog-menu {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: rem(5);
+
+  @include mq(sm) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: rem(20);
+  }
+
+  @include mq(lg) {
+    column-gap: rem(30);
+  }
+
+  &__item {
+    flex: 0 1 auto;
+  }
+
+  &__lnk {
+    @include adaptiveValue("font-size", 16, 14, $lg, $minWidth, 1);
+    flex: 0 1 auto;
+    font-weight: 600;
+    color: $text;
+    transition: all $globalTransition;
+    @include hover {
+      color: $theme;
+    }
+
+    &--active {
+      color: $accent;
+    }
+  }
+}
+
+.blog-card-wide {
+  position: relative;
+
+  @include hover {
+    img {
+      transform: scale(1.04);
+    }
+  }
+
+  &__inner {
+    @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+    overflow: hidden;
+    @include mq(md) {
+      display: flex;
+      align-items: stretch;
+    }
+  }
+
+  &__img {
+    display: block;
+    // @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+    overflow: hidden;
+    @extend %ibg;
+    padding-top: 67%;
+    transition: all $globalTransition;
+
+    @include mq(md) {
+      flex: 0 0 calc(50% - rem(10));
+      padding-top: 0;
+    }
+
+    @include mq(lg) {
+      flex: 0 0 calc(50% - rem(15));
+    }
+
+    @include mq(xl) {
+      flex: 0 0 calc(50% - rem(25));
+    }
+
+    img {
+      transition: all $globalTransition;
+    }
+  }
+
+  &__body {
+    padding: rem(20);
+    background-color: $white;
+
+    @include mq(md) {
+      flex: 1 1 100%;
+    }
+
+    @include mq(lg) {
+      padding: rem(35) rem(30);
+    }
+
+    @include mq(xl) {
+      padding: rem(50);
+    }
+  }
+
+  &__info {
+    @include adaptiveValue("margin-bottom", 10, 5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(15);
+    row-gap: rem(5);
+
+    @include mq(lg) {
+      column-gap: rem(20);
+    }
+  }
+
+  &__pub-date {
+    flex: 0 1 auto;
+  }
+
+  &__category {
+    flex: 0 1 auto;
+  }
+
+  &__title {
+    @include adaptiveValue("margin-bottom", 12, 8);
+    transition: all $globalTransition;
+
+    @include hover {
+      color: $theme;
+    }
+  }
+
+  &__text {
+  }
+
+  &__link-wrap {
+    position: absolute;
+    bottom: 0;
+    right: rem(20);
+    transform: translateY(50%);
+  }
+}
+
+.blog-slider {
+  @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+  @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
+
+  @include mq(xl) {
+    border-radius: rem(60) rem(60) 0 0;
+    padding-top: rem(110);
+    padding-bottom: rem(110);
+  }
+
+  &__container {
+  }
+
+  &__header {
+    @include adaptiveValue("margin-bottom", 45, 25);
+
+    @include mq(sm) {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      column-gap: rem(20);
+    }
+
+    @include mq(lg) {
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(50);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(15);
+
+    @include mq(xs) {
+      width: rem(380);
+    }
+
+    @include mq(sm) {
+      flex: 0 0 auto;
+      margin-bottom: 0;
+    }
+
+    @include mq(md) {
+      width: calc(50% - rem(20));
+    }
+
+    @include mq(lg) {
+      width: rem(490);
+    }
+
+    @include mq(xl) {
+      width: rem(600);
+    }
+  }
+
+  &__slider-arrows {
+    display: none;
+    @include mq(md) {
+      display: flex;
+      margin-top: rem(30);
+    }
+  }
+
+  &__body {
+    margin-right: rem(-20);
+
+    @include mq(md) {
+      margin-right: 0;
+    }
+  }
+
+  &__card {
+    // width: 300px;
+    height: auto;
+  }
+
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+}
+
+.blog-paginator {
+  display: flex;
+  justify-content: space-between;
+  &__lnk {
+    @extend %btnReset;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    font-weight: 600;
+    color: $black;
+    font-size: rem(14);
+    line-height: 1.4;
+    transition: all $globalTransition;
+
+    &::before {
+      margin-left: rem(5);
+      color: $theme;
+      display: block;
+      flex: 0 0 auto;
+      font-size: rem(20);
+      transform: rotate(180deg);
+    }
+
+    @include mq(md) {
+      font-size: rem(16);
+    }
+
+  
+    @include hover {
+      color: $theme;
+    }
+
+    &--prev {
+      flex-direction: row;
+
+      &::before {
+        transform: rotate(0);
+      }
+    }
+
+    &--disabled {
+      opacity: .65;
+
+      @include hover {
+        color: $black;
+      }
+    }
+  }
+}
+
+.blog-article {
+  min-width: 0;
+  overflow: hidden;
+  &__header {
+    @include adaptiveValue("margin-bottom", 30, 20, $lg, $minWidth, 1);
+  }
+
+  &__body {
+    @include mq(lg) {
+      max-width: rem(685);
+      margin: auto;
+    }
+
+    @include mq(xl) {
+      max-width: rem(780);
+    }
+  }
+  
+  &__title {
+    @include adaptiveValue("margin-bottom", 30, 20, $lg, $minWidth, 1);
+  }
+
+  &__pub-date {
+    @include adaptiveValue("margin-bottom", 10, 5, $lg, $minWidth, 1);
+  }
+
+  &__img {
+    display: block;
+    
+
+    img {
+      overflow: hidden;
+      @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+      @include imgFluid;
+    }
+  }
+
+  &__gallery {
+    overflow: hidden;
+    // width: 100%;
+    @include adaptiveValue("margin-top", 25, 15);
+    @include adaptiveValue("margin-bottom", 25, 15);
+  }
+
+  &__video {
+    overflow: hidden;
+    @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+    // width: 100%;
+    @include adaptiveValue("margin-top", 25, 15);
+    @include adaptiveValue("margin-bottom", 25, 15);
+  }
+}
+
+
+.blog-sidebar {
+  padding: rem(15) rem(20) rem(20);
+    background-color: $white;
+
+    
+    @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+
+    @include mq(lg) {
+      padding: rem(25) rem(30) rem(30);
+  }
+
+  // @include mq(xl) {
+  //     padding: rem(30) rem(50) rem(40);
+  // }
+  &__title {
+    @include adaptiveValue("margin-bottom", 15, 10);
+  }
+
+  &__social {
+  }
+}
+
+
+.blog-gallery {
+
+  &__img {
+    @extend %ibg;
+    padding-top: 55%;
+    overflow: hidden;
+    @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+  }
+
+  &__controls {
+    @include adaptiveValue("margin-top", 15, 10);
+    display: flex;
+    align-items: center;
+    column-gap: rem(20);
+  }
+
+  &__pagination {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,63 @@
+.sub-header {
+    @include adaptiveValue("padding-top", 35, 25, $md, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 35, 25, $md, $minWidth, 1);
+    background-color: $white;
+
+    @include mq(xl) {
+        padding-top: rem(55);
+        padding-bottom: rem(55);
+    }
+
+    &__container {
+    }
+
+    &__breadcrumbs {
+    }
+}
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        flex: 0 1 auto;
+        font-size: rem(15);
+        &:not(:last-child) {
+            position: relative;
+            padding-right: rem(15);
+            margin-right: rem(15);
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: rem(3);
+                bottom: rem(3);	
+                right: 0;
+                width: rem(1);
+                background-color: $border;
+            }
+        }
+
+        &:last-child {
+            color: $border;
+        }
+
+        @include mq(lg) {
+            padding-right: rem(20);
+            margin-right: rem(20);
+        }
+    }
+
+    &__lnk {
+        color: $text;
+        transition: all $globalTransition;
+
+        @include hover {
+            color: $theme;
+        }
+    }
+}
+.breadcrums {
+
+    &__current {
+    }
+}

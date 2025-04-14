@@ -1,0 +1,73 @@
+.tv-promo {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+
+    &__container {
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 35, 20);
+
+        @include mq(lg) {
+            width: rem(800);
+        }
+
+        @include mq(xl) {
+            width: rem(1120);
+        }
+    }
+
+    &__body {
+        @include mq(md) {
+            display: flex;
+            column-gap: rem(20);
+        }
+
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 50, 40, $md, $minWidth, 3);
+
+        @include mq(xs) {
+           width: rem(380);
+        }
+    
+        @include mq(md) {
+            flex: 0 0 rem(380);
+        }
+    
+        @include mq(lg) {
+            flex: 0 0 rem(490);
+        }
+
+
+    }
+
+    &__img {
+        // flex: 1 0 auto;
+        display: block;
+        position: relative;
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(md) {
+            margin-top: rem(10);
+            // flex: 1 0 100%;
+        }
+
+        @include mq(xl) {
+        }
+    }
+
+    &__running-text {
+        position: absolute;
+        top: 7%;
+        left: 5.7%;
+        right: 7.8%;
+        
+    }
+}
+
+
+

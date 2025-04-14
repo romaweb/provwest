@@ -1,0 +1,7 @@
+.field-error {
+	display: block;
+	margin: 0;
+	color: $errorColor;
+	line-height: 1.1;
+	@include adaptiveValue("font-size", 14, 12);
+}

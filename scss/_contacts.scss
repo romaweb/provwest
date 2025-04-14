@@ -1,0 +1,254 @@
+.contacts {
+  @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+  @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 3);
+
+  @include mq(lg) {
+    position: relative;
+    z-index: 1;
+    margin-bottom: rem(-80);
+  }
+
+  @include mq(xl) {
+      padding-top: rem(110);
+  }
+
+  &__container {
+    @include mq(lg) {
+      display: flex;
+      align-items: stretch;
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(50);
+    }
+
+  }
+
+  &__col {
+    @include mq(lg) {
+      flex: 0 0 calc(50% - rem(15));
+      display: flex;
+      flex-direction: column;
+      padding-bottom: rem(180);
+    }
+
+    @include mq(xl) {
+      padding-bottom: rem(200);
+    }
+    
+
+  }
+
+  &__block {
+    position: relative;
+    z-index: 1;
+    margin: 0 rem(-20);
+    // @include adaptiveValue("margin-top", -40, -20, $lg, $minWidth, 3);
+    @include mq(lg) {
+      margin: 0;
+      flex: 0 0 calc(50% - rem(15)); 
+    }
+  }
+
+  &__title-block {
+    @include adaptiveValue("margin-bottom", 40, 30, $lg, $minWidth, 1);
+
+        @include mq(xs) {
+            width: rem(380);
+        }
+
+        @include mq(md) {
+          @include adaptiveValue("width", 385, 300, $lg, $md, 2); 
+      }
+
+
+      @include mq(xl) {
+          width: rem(520); 
+      }
+  }
+
+  &__map {
+    margin: 0 rem(-20);
+    @include adaptiveValue("margin-bottom", 60, 40, $lg, $minWidth, 3);
+    background-color: $lightGrey;
+    min-height: rem(400);
+    z-index: 0;
+    outline: none;
+
+    @include mq(lg) {
+      border-radius: rem(20);
+      margin: 0;
+      flex: 1 1 auto;
+    }
+
+    div {
+      border-width: 0 !important;
+    }
+  }
+}
+
+.contacts-block {
+  @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+  background-color: $lightGrey;
+
+  @include mq(lg) {
+    padding: rem(40) rem(30);
+}
+
+@include mq(xl) {
+    padding: rem(60) rem(50);
+}
+  // padding: rem(20);
+  padding: rem(35) rem(20);
+  &__row {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 35, 25);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(15);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include adaptiveValue("row-gap", 15, 10);
+
+    @include mq(sm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: rem(20);
+    }
+  }
+
+  &__item {
+    @include mq(sm) {
+      flex: 0 1 calc(50% - rem(10));
+    }
+  }
+
+  &__social {
+  }
+
+  &__btn {
+    margin-top: rem(10);
+    margin-left: rem(34);
+  }
+}
+
+.contacts-item {
+  display: flex;
+  align-items: flex-start;
+  // align-items: stretch;
+  column-gap: rem(10);
+
+  &__icon {
+    flex: 0 0 auto;
+    font-size: rem(24);
+    color: $theme;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__text {
+  }
+
+  &__tel {
+  }
+
+  &__title {
+    flex: 1 1 100%;
+    margin-bottom: rem(10);
+  }
+
+  &__email {
+    display: inline-block;
+    @include adaptiveValue("margin-top", 3, 6, $lg, $minWidth, 1);
+    margin-top: rem(6);
+  }
+}
+
+.tel {
+  display: inline-block;
+  font-size: rem(20);
+  font-weight: 600;
+  font-family: $secondaryFont;
+  color: $black;
+  line-height: 1.2;
+  letter-spacing: rem(1);
+  transition: all $globalTransition;
+
+  @include hover {
+    color: $theme;
+  }
+
+  &--small {
+    font-size: rem(18);
+  }
+}
+
+.email {
+  display: inline-block;
+  align-self: center;
+  font-weight: 600;
+  color: $black;
+  // @include adaptiveValue("font-size", 18, 16, $lg, $minWidth, 1);
+  @include adaptiveValue("font-size", 16, 14, $lg, $minWidth, 1);
+  line-height: 1.4;
+  transition: all $globalTransition;
+
+  @include mq(xl) {
+    font-size: rem(18);
+  }
+
+  @include hover {
+    color: $theme;
+  }
+}
+.social {
+  display: flex;
+  align-items: stretch;
+  column-gap: rem(20);
+  row-gap: rem(20);
+
+  &__item {
+    flex: 0 0 auto;
+  }
+
+  &__lnk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: rem(4);
+    @include adaptiveValue("height", 40, 36, $lg, $minWidth, 1);
+    @include adaptiveValue("width", 40, 36, $lg, $minWidth, 1);
+    @include adaptiveValue("font-size", 32, 24, $lg, $minWidth, 1);
+    // display: block;
+    color: $white;
+    background-color: $theme;
+    transition: all $globalTransition;
+
+    @include hover {
+      background-color: $themeBgLight;
+    }
+
+    &--small {
+      @include mq(lg) {
+        height: rem(36);
+        width: rem(36);
+        font-size: rem(24);
+      }
+    }
+
+    &--large {
+      @include adaptiveValue("height", 44, 40, $lg, $minWidth, 1);
+    @include adaptiveValue("width", 44, 40, $lg, $minWidth, 1);
+    @include adaptiveValue("font-size", 32, 24, $lg, $minWidth, 1);
+    }
+  }
+}

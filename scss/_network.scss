@@ -1,0 +1,106 @@
+.network {
+    
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-right-radius", 45, 25, $lg, $minWidth, 1);
+    background-color: $lightGrey;
+
+    @include mq(xl) {
+        border-radius:  0 0 rem(60) rem(60);
+    }
+
+    &__container {
+        @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+         @include adaptiveValue("padding-bottom", 90, 80, $lg, $minWidth, 1);
+        position: relative;
+        @include mq(md) {
+            display: flex;
+            flex-direction: row-reverse;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(30);
+            padding-top: rem(110);
+            padding-bottom: rem(110);
+        }
+    }
+
+    &__location-marker-icon {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 0;
+        left: 36.5%;
+
+        @include mq(xs) {
+            left: rem(160);
+        }
+
+        @include mq(md) {
+            left: auto;
+            right: 27%;
+        }
+
+        @include mq(xl) {
+        }
+    }
+
+    &__title-block {
+        @include mq(md) {
+            flex: 0 0 calc(50% - rem(10));
+        }
+
+        @include mq(lg) {
+            flex: 0 0 calc(50% - rem(15));
+        }
+
+        @include mq(xl) {
+            flex: 0 0 calc(50% - rem(25));
+        }
+    }
+
+    &__img {
+        
+        @include adaptiveValue("margin-bottom", 25, 15, $md, $minWidth, 3);
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(xs) {
+            max-width: rem(400);
+        }
+
+        @include mq(md) {
+            max-width: 100%;
+            flex: 0 0 calc(50% - rem(10));
+        }
+
+        @include mq(lg) {
+            flex: 0 0 calc(50% - rem(15));
+        }
+
+        @include mq(xl) {
+            flex: 0 0 calc(50% - rem(25));
+        }
+    }
+}
+.title-block {
+
+    &__title {
+    }
+
+    &__text {
+    }
+
+    &__btn {
+    }
+}
+.section-title {
+}
+.text {
+}
+.btn {
+}

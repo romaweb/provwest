@@ -1,0 +1,39 @@
+.search-popup {
+    z-index: 5;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: rem(50) rem(10) rem(40);
+    background-color: $white;
+    max-width: 100%;
+    top: -100%;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+	overflow-x: hidden;
+    transition: all $globalTransition;
+    // background-color: rgba($text, .6);
+
+    &._active {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+
+
+    &__form-search {
+        // position: absolute;
+        // overflow-y: auto;
+    }
+
+    &__close-btn {
+        position: absolute;
+        right: rem(10);
+        top: rem(15);
+    }
+
+    @include mq(lg) {
+        display: none;
+    }
+}

@@ -1,0 +1,67 @@
+.text-page {
+    background-color: $lightGrey;
+  @include adaptiveValue("padding-top", 35, 25, $md, $minWidth, 1);
+  @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
+  @include adaptiveValue(
+    "border-bottom-left-radius",
+    45,
+    25,
+    $lg,
+    $minWidth,
+    1
+  );
+  @include adaptiveValue(
+    "border-bottom-right-radius",
+    45,
+    25,
+    $lg,
+    $minWidth,
+    1
+  );
+
+  @include mq(xl) {
+    padding-top: rem(55);
+    padding-bottom: rem(110);
+    border-radius: 0 0 rem(60) rem(60);
+  }
+
+    &__container {
+
+        
+    }
+
+    &__article {
+        @include mq(lg) {
+            max-width: rem(1000);
+        }
+
+        // @include mq(xl) {
+        //     max-width: percent(990, 1510);
+        //     // background-color: red;
+        // }
+    }
+
+    
+}
+
+.text-article {
+    margin-top: 0;
+    &__btn {
+        margin-bottom: rem(5);
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 25, 15, $lg, $minWidth, 1);
+    }
+
+    &__body {
+        // @include mq(lg) {
+        //   max-width: rem(685);
+        //   margin: auto;
+        // }
+    
+        // @include mq(xl) {
+        //   max-width: rem(780);
+        // }
+      }
+}

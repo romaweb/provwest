@@ -1,0 +1,70 @@
+.quantity {
+	border: rem(1) solid $black;
+		display: inline-flex;
+		align-items: center;
+		@include adaptiveValue("min-height", 50, 40);
+
+		&--small {
+			@include adaptiveValue("min-height", 40, 35);
+			.quantity__input {
+				width: rem(30);
+			}
+
+			.quantity__button {
+			// 	width: rem(20);
+				font-size: rem(28);
+			// 	padding-top: rem(5);
+			// 	padding-bottom: rem(5);
+			}
+		}
+
+
+
+	&__input {
+		@extend %inputReset;
+		width: rem(60);
+		text-align: center;
+
+		-moz-appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+	}
+
+	&__button {
+		// padding: 5px 10px;
+		width: rem(30);
+		// @include adaptiveValue("padding-top", 10, 3);
+		// @include adaptiveValue("padding-bottom", 10, 3);
+		text-align: center;
+		line-height: 1;
+		// font-size: 3rem;
+		font-size: rem(32);
+		font-weight: 600;
+		color: $black;
+		cursor: pointer;
+		transition: all $globalTransition;
+
+		@include hover {
+			color: $themeColor;
+		}
+
+		// @media (any-hover: hover) {
+		// 	&:hover {
+		// 		color: $theme-dark;
+		// 	}
+		// }
+		&--minus {
+		}
+
+		&--plus {
+		}
+
+		// @include mq(xs) {
+		// 	padding: 10px 12px;
+		// }
+	}
+}

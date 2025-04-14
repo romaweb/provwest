@@ -1,0 +1,76 @@
+.text-block {
+	@include adaptiveValue("padding-top", 75, 45, $lg, $minWidth, 1);
+	// @include adaptiveValue("padding-top", 75, 45);
+	// @include adaptiveValue("padding-top", 75, 45);
+	background-color: $white;
+
+	@include mq(xl) {
+		padding-top: rem(95);
+	}
+
+	&__container {}
+
+	&__title {
+
+        @include adaptiveValue("margin-bottom", 25, 15);
+        @include mq(xs) {
+            max-width: rem(380);
+        }
+		
+
+		@include mq(md) {
+			max-width: calc(50% - rem(10));
+		}
+
+        @include mq(lg) {
+			max-width: calc(50% - rem(15));
+		}
+	}
+
+	&__text-spoller {}
+}
+
+.section-title {}
+
+.text-spoller {
+    display: block;
+	// display: flex;
+	// flex-direction: column;
+
+	&__text {
+		// flex: 1 1 auto;
+		position: relative;
+		// max-height: rem(150);
+		
+		overflow: hidden;
+		// transition: all $globalTransition;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: rem(80);
+			z-index: 1;
+			background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 22, rgba(255, 255, 255, .67) 66%, #fff 98%, #fff 100%);
+		}
+
+		&._open {
+            // max-height: 100%;
+			height: auto;
+
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	&__spoller-btn {
+		// margin-left: auto;
+		margin-top: rem(15);
+		
+	}
+}
+

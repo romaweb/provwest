@@ -1,0 +1,160 @@
+.services {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 90, 70, $md, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 140, 120, $lg, $md, 1);
+    @include adaptiveValue("border-bottom-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-bottom-right-radius", 45, 25, $lg, $minWidth, 1);
+    background-color: $lightGrey;
+
+    @include mq(xl) {
+        border-radius: 0 0 rem(60) rem(60);
+        padding-bottom: rem(160);
+    }
+    &__container {
+
+        @include mq(md) {
+            display: flex;
+            align-items: flex-start;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(130);
+        }
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 25, 15, $md, $minWidth, 3);
+        
+
+        @include mq(xs) {
+            width: rem(380);
+        }
+
+        @include mq(md) {
+            @include adaptiveValue("width", 385, 300, $lg, $md, 2); 
+            flex: 0 0 auto;
+        }
+
+        @include mq(lg) {
+            flex: 0 0 auto; 
+        }
+
+        @include mq(xl) {
+            width: rem(520); 
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        row-gap: rem(20);
+
+        @include mq(sm) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: rem(20);
+        }
+
+        @include mq(md) {
+            flex: 1 1 auto; 
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+            row-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__item {
+       @include mq(sm) {
+            flex: 0 1 calc(50% - rem(10));
+       }
+
+       @include mq(md) {
+        &:nth-child(odd) {
+            // transform: translateY(rem(40));
+            bottom: rem(-40);
+        }
+   }
+
+       @include mq(lg) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+
+        @include mq(xl) {
+            flex: 0 1 calc(50% - rem(25));
+        }
+    }
+
+    
+}
+
+.service-item {
+    position: relative;
+    margin-top: rem(20);
+    background-color: $white;
+    padding: rem(20) rem(20);
+    @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+    box-shadow: 0px rem(5) 0px 0px $border;
+    transition: all $globalTransition;
+
+    @include hover {
+        transform: translateY(rem(5));
+        // bottom: rem(-5);
+        box-shadow: none;
+    }
+
+    @include mq(lg) {
+        padding: rem(30) rem(30);
+    }
+
+    @include mq(xl) {
+        margin-top: rem(25);
+    }
+        &__icon {
+            position: absolute;
+            top: rem(-20);
+            right: rem(20);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(40);
+            height: rem(40);
+            border-radius: 50%;
+            background: $theme;
+            color: $white;
+            font-size: rem(24);
+
+            @include mq(lg) {
+                right: rem(30);
+            }
+
+            @include mq(xl) {
+                width: rem(50);
+                height: rem(50);
+                top: rem(-25);
+                right: rem(30);
+                font-size: rem(32);
+            }
+
+        }
+       
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 5, 2);
+    }
+
+    &__price {
+
+    }
+}

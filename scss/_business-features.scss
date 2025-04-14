@@ -1,0 +1,143 @@
+.business-features {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 90, 80, $md, $minWidth, 1);
+    
+    @include adaptiveValue("border-bottom-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-bottom-right-radius", 45, 25, $lg, $minWidth, 1);
+    background-color: $lightGrey;
+
+    @include mq(md) {
+        @include adaptiveValue("padding-bottom", 200, 140, $lg, $md, 1);
+    }
+
+    @include mq(xl) {
+        border-radius: rem(60) rem(60) 0 0;
+        padding-top: rem(110);
+        padding-bottom: rem(220);
+    }
+
+    &__header {
+        // @include adaptiveValue("margin-bottom", 35, 20);
+        margin-bottom: rem(20);
+
+        @include mq(sm) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            column-gap: rem(20);
+            margin-bottom: 0;
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__header-col {
+        @include adaptiveValue("margin-bottom", 30, 25, $sm, $minWidth, 3);
+
+        @include mq(sm) {
+            flex: 0 1 70%;
+            margin-bottom: 0;
+        }
+
+        @include mq(lg) {
+            flex: 0 1 rem(800);
+        }
+
+        @include mq(xl) {
+            flex: 0 1 rem(1120);
+        }
+    }
+
+    &__title {
+        &:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 25, 10);
+		}
+    }
+
+    &__text {
+
+        @include mq(xs) {
+			max-width: rem(400);
+		}
+        // @include mq(xs) {
+		// 	max-width: rem(312);
+		// }
+
+
+		// @include mq(xl) {
+		// 	max-width: rem(400);
+		// }
+    }
+
+    &__btn {
+        @include mq(sm) {
+            margin-top: rem(20);
+           }
+
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        row-gap: rem(20);
+
+        @include mq(sm) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+            row-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__item {
+        @include mq(sm) {
+            flex: 0 1 calc(50% - rem(10));
+       }
+
+       @include mq(md) {
+            // &:nth-child(2n+1) {
+            &:nth-child(odd) {
+                // transform: translateY(rem(40));
+                bottom: rem(-40);
+            }
+        }
+
+        @include mq(lg) {
+            flex: 0 1 calc( 100% / 3 - rem(20));
+
+            &:nth-child(odd) {
+                bottom: 0;
+            }
+
+
+
+            &:nth-child(3n+2) {
+                bottom: rem(-40);
+            }
+
+            &:nth-child(3n+1) {
+                bottom: rem(-80);
+            }
+
+        }
+
+        @include mq(xl) {
+            flex: 0 1 calc( 100% / 3 - rem(100) / 3);
+        }
+    }
+}

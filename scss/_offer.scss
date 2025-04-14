@@ -1,0 +1,80 @@
+.offer {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-right-radius", 45, 25, $lg, $minWidth, 1);
+    background-color: $lightGrey;
+
+    @include mq(xl) {
+        padding-top: rem(110);
+        padding-bottom: rem(120);
+        border-radius: rem(60) rem(60) 0 0;
+      }
+
+    &--white {
+      background-color: $white;
+      border-radius: 0;
+    }
+    &__container {
+      @include mq(md) {
+        display: flex;
+        align-items: stretch;
+        column-gap: rem(20);
+      }
+
+      @include mq(lg) {
+        column-gap: rem(30);
+      }
+
+      @include mq(xl) {
+        column-gap: rem(50);
+      }
+    }
+
+    &__title {
+      @include adaptiveValue("margin-bottom", 15, 10, $md, $minWidth, 3);
+
+      @include mq(xs) {
+        max-width: rem(600);
+      }
+
+      @include mq(md) {
+        max-width: 100%;
+        flex: 0 0 calc(50% - rem(15));
+      }
+
+      @include mq(lg) {
+        flex: 0 0 rem(594);
+      }
+
+      @include mq(xl) {
+        flex: 0 0 rem(860);
+      }
+    }
+
+    &__body {
+      @include mq(xs) {
+        max-width: rem(680);
+      }
+
+      @include mq(md) {
+        max-width: 100%;
+        flex: 0 1 100%;
+      }
+    }
+
+    &__text {
+        &:not(:last-child) {
+			  @include adaptiveValue("margin-bottom", 40, 25);
+
+        @include mq(md) {
+          flex: 0 1 auto;
+        }
+		}
+
+    }
+
+    &__btn {
+    }
+}
+

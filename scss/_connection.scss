@@ -1,0 +1,211 @@
+.connection {
+    background-color: $lightGrey;
+    position: relative;
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-right-radius", 45, 25, $lg, $minWidth, 1);
+
+    &::before {
+        content: '';
+        display: block;
+        @include adaptiveValue("height", 60, 40, $lg, $minWidth, 1);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $white;
+        z-index: 0;
+    }
+
+    @include mq(xl) {
+        border-radius: rem(60) rem(60) 0 0;
+        &::before {
+            height: rem(80)
+        }
+    }
+    
+    // @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+
+    &__container {
+        @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+        position: relative;
+        @include mq(sm) {
+            display: flex;
+            align-items: flex-start;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: 0;
+        }
+
+        @include mq(xl) {
+            padding-top: rem(110);
+        }
+    }
+
+    &__location-marker-icon {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 0;
+        left: rem(40);
+
+        @include mq(lg) {
+            left: auto;
+            right: rem(35);
+        }
+
+        @include mq(xl) {
+            right: rem(50);
+        }
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 50, 40, $md, $minWidth, 3);
+        @include mq(xs) {
+            width: rem(380);
+        }
+
+        @include mq(sm) {
+            flex: 0 0 rem(320);
+            // flex: 0 0 rem(300);
+        }
+
+        @include mq(md) {
+            flex: 0 0 calc(50% - rem(20));         
+        }
+
+        @include mq(lg) {
+            flex: 0 0 rem(490);   
+            margin-right: rem(30);
+        }
+
+        @include mq(xl) {
+            flex: 0 0 rem(600);
+            margin-right: rem(50);
+        }
+
+
+    }
+
+    &__form {
+        padding: rem(35) rem(20);
+        background-color: $themeBgDark;
+        @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+        transition: all $globalTransition;
+
+        @include hover {
+            transform: translateY(rem(8));
+        }
+
+        @include mq(sm) {
+            margin-top: rem(10);
+            flex: 1 1 auto;
+        }
+
+        @include mq(lg) {
+            margin: 0;
+            flex: 0 0 rem(490);
+            padding: rem(40) rem(30);
+        }
+
+        @include mq(xl) {
+            flex: 0 0 rem(600);
+            padding: rem(60) rem(50);
+        }
+
+
+    }
+
+    &__img {
+        display: none;
+
+        @include mq(lg) {
+            display: block;
+    
+            img {
+                @include imgFluid;
+            }
+        }
+    }
+    
+    
+}
+
+
+.call-form {
+    
+    &__title {
+        @include adaptiveValue("margin-bottom", 30, 20);
+    }
+    &__body {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        // @include adaptiveValue("row-gap", 40, 30, $lg, $minWidth, 1);
+        @include adaptiveValue("row-gap", 35, 30, $lg, $minWidth, 1);
+        // @include adaptiveValue("margin-bottom", 50, 35, $lg, $minWidth, 1);
+        @include adaptiveValue("margin-bottom", 45, 35, $lg, $minWidth, 1);
+    }
+
+
+    &__fields-wrap {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        @include adaptiveValue("row-gap", 40, 30, $lg, $minWidth, 1);
+
+        @include mq(md) {
+            flex-direction: row;
+            column-gap: rem(20);
+
+            .call-form__field:first-child {
+                flex: 0 1 70%;
+            }
+
+            .call-form__field:last-child {
+                flex: 1 1 auto;
+            }
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+    }
+
+    &__label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: rem(8);
+        color: $black;
+        line-height: 1.2;
+    }
+
+    &__field {
+        position: relative;
+    }
+
+    &__field-error {
+        position: absolute;
+        top: calc(100% + rem(5));
+    }
+
+    &__btn {
+        width: 100%;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 35, 25, $lg, $minWidth, 1);
+        }
+    }
+
+    &__conditions {
+        color: $text;
+        line-height: 1.4;	
+
+        a {
+            color: $theme;
+            transition: all $globalTransition;
+        }
+    }
+}
+

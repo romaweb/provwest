@@ -1,0 +1,369 @@
+.tariffs {
+  background-color: $lightGrey;
+  @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+
+  @include mq(xl) {
+    padding-top: rem(110);
+  }
+
+  &--inner {
+    @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue(
+      "border-top-right-radius",
+      45,
+      25,
+      $lg,
+      $minWidth,
+      1
+    );
+
+    @include mq(xl) {
+      border-radius: rem(60) rem(60) 0 0;
+      padding-top: rem(110);
+    }
+  }
+
+  &__container {
+  }
+
+  &__header {
+    @include adaptiveValue("margin-bottom", 25, 15);
+
+    @include mq(md) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      column-gap: rem(20);
+    }
+
+    @include mq(lg) {
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(50);
+    }
+  }
+
+  &__title-block {
+    // margin-bottom: rem(15);
+    @include adaptiveValue("margin-bottom", 35, 25, $md, $minWidth, 3);
+
+    @include mq(xs) {
+      width: rem(380);
+    }
+
+    // @include mq(sm) {
+    //   margin-bottom: 0;
+    // }
+
+    @include mq(md) {
+      width: calc(50% - rem(20));
+    }
+
+    @include mq(lg) {
+      width: rem(490);
+    }
+
+    @include mq(xl) {
+      width: rem(600);
+    }
+  }
+
+  &__tabs-nav {
+    @include mq(md) {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__slider {
+    @include adaptiveValue("margin-bottom", 30, 20);
+  }
+
+  &__notification {
+    @include mq(lg) {
+      max-width: rem(800);
+    }
+  }
+
+  &__card {
+    &--tv {
+      max-width: rem(470);
+    }
+  }
+}
+.tarif-card {
+  padding-top: rem(27);
+  position: relative;
+  padding-bottom: rem(4);
+  transition: all $globalTransition;
+  
+
+  @include hover {
+    transform: translateY(rem(5));
+    .tarif-card__body {
+      box-shadow: none;
+    }
+  }
+
+  @include mq(xl) {
+    padding-top: rem(30);
+  }
+
+  &__label {
+    top: rem(0);
+    position: absolute;
+    z-index: 2;
+    right: rem(20);
+
+    @include mq(lg) {
+      right: rem(30);
+    }
+
+    @include mq(xl) {
+      // top: rem(-30);
+    }
+  }
+
+  &__body {
+    background-color: $white;
+    @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+    box-shadow: 0px rem(5) 0px 0px $border;
+    overflow: hidden;
+    transition: all $globalTransition;
+
+    &--grey {
+      background-color: $lightGrey;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(10) rem(20) rem(25);
+    @include adaptiveValue("margin-bottom", 20, 15);
+    overflow: hidden;
+
+    @include mq(lg) {
+      padding: rem(15) rem(30) rem(30);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      @include centerX;
+      bottom: 0;
+      z-index: 0;
+      width: 140%;
+      padding-top: 140%;
+      border-radius: 100%;
+      background-color: $accent;
+    }
+
+    &--theme-light {
+      &::after {
+        background-color: $themeBgLight;
+      }
+    }
+
+    &--accent-dark {
+      &::after {
+        background-color: $accentBgDark;
+      }
+    }
+
+    &--theme-dark {
+      &::after {
+        background-color: $themeBgDark;
+      }
+    }
+
+    &--grey {
+      &::after {
+        background-color: $text;
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    color: $white;
+  }
+
+  &__descr {
+    color: $white;
+    z-index: 1;
+    position: relative;
+    @include adaptiveValue("font-size", 18, 14, $lg, $minWidth, 1);
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include adaptiveValue("margin-bottom", 20, 15);
+    padding: 0 rem(20);
+
+    @include mq(lg) {
+      padding: 0 rem(30);
+    }
+  }
+
+  &__price-row {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__value {
+    color: $accent;
+  }
+
+  &__period {
+    line-height: 1.6;
+  }
+
+  &__separator {
+    line-height: 1;
+  }
+
+  &__connection {
+    color: $black;
+    font-weight: 600;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include adaptiveValue("margin-bottom", 25, 20);
+    padding: 0 rem(20);
+
+    @include mq(lg) {
+      padding: 0 rem(30);
+    }
+  }
+
+  &__info-item {
+    color: $black;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      margin-right: rem(5);
+      flex: 0 0 auto;
+      color: $theme;
+      font-size: rem(24);
+    }
+  }
+
+  &__footer {
+    padding: 0 rem(20) rem(20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include adaptiveValue("row-gap", 20, 15);
+
+    @include mq(lg) {
+      padding: 0 rem(30) rem(30);
+    }
+  }
+
+  &__notification {
+    @include mq(lg) {
+      width: rem(800);
+    }
+  }
+}
+
+.tarif-page {
+  background-color: $white;
+  @include adaptiveValue("padding-top", 70, 40, $lg, $minWidth, 1);
+  @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
+
+  @include mq(xl) {
+    padding-top: rem(90);
+    padding-bottom: rem(110);
+  }
+
+  &__container {
+    @include mq(md) {
+      display: flex;
+      align-items: flex-start;
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      column-gap: rem(80);
+    }
+  }
+
+  &__body {
+    margin-bottom: rem(10);
+    @include mq(md) {
+      flex: 1 1 auto;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    @include adaptiveValue("margin-bottom", 30, 20);
+  }
+
+  &__item {
+    @include adaptiveValue("margin-bottom", 30, 20);
+  }
+
+  &__card {
+    max-width: rem(386);
+    
+
+    @include mq(md) {
+      flex: 0 0 rem(386);
+    }
+
+    @include mq(xl) {
+      flex: 0 0 rem(470);
+    }
+  }
+
+  &__descr {
+
+    &:not(:last-child) {
+        border-bottom: rem(1) solid $border;
+        @include adaptiveValue("margin-bottom", 25, 15);
+        @include adaptiveValue("padding-bottom", 25, 15);
+
+    }
+  }
+}
+.section-title {
+}
+.tarif-info-item {
+  padding: rem(15) rem(20);
+  display: inline-flex;
+  @include adaptiveValue("font-size", 18, 14, $lg, $minWidth, 1);
+  line-height: 1.4;
+  font-weight: 600;
+  color: $black;
+  background-color: $lightGrey;
+  border-radius: rem(6);
+  align-items: center;
+
+  @include mq(lg) {
+    padding: rem(20) rem(30);
+  }
+
+  &::before {
+    margin-right: rem(5);
+    flex: 0 0 auto;
+    color: $theme;
+    font-size: rem(24);
+  }
+}

@@ -1,0 +1,118 @@
+.video-secur {
+    @include adaptiveValue("padding-top", 100, 70, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 100, 70, $lg, $minWidth, 1);
+
+    @include mq(xl) {
+        padding-top: rem(120);
+        padding-bottom: rem(120);
+    }
+
+    &__container {
+        @include mq(sm) {
+            display: flex;
+            align-items: center;
+            column-gap: rem(30);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(60);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(80);
+        }
+    }
+
+    &__img {
+        
+        width: rem(280);
+        margin: 0 auto;
+        margin-bottom: rem(25);
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(sm) {
+            margin: 0;
+            flex: 0 0 rem(280);
+        }
+
+        @include mq(md) {
+            flex: 0 0 rem(356);
+        }
+
+        @include mq(xl) {
+            flex: 0 0 rem(440);
+        }
+    }
+
+    &__body {
+        @include mq(sm) {
+            flex:  1 1 auto;
+        }
+
+        
+    }
+
+    &__title {
+        @include adaptiveValue("margin-bottom", 25, 15);
+
+        @include mq(lg) {
+            width: 50%;
+        }
+    }
+
+    &__inner {
+        @include mq(lg) {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: rem(30);
+        }
+    }
+
+    &__list {
+        @include adaptiveValue("margin-bottom", 8, 5, $lg, $minWidth, 3);
+        @include mq(lg) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+    }
+
+    &__col {
+        @include mq(lg) {
+            flex: 0 1 calc(50% - rem(15));
+        }
+    }
+
+    &__text {
+        @include adaptiveValue("margin-bottom", 35, 25);	
+    }
+}
+
+.custom-list {
+
+    &__item {
+        position: relative;
+        @include adaptiveValue("padding-left", 35, 30, $lg, $minWidth, 1);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 8, 5, $lg, $minWidth, 1);
+        }
+
+        &::before {
+            content: "\e903";
+            @extend %ic;
+            color: $white;
+            position: absolute;
+            left: 0;
+            top: rem(2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include adaptiveValue("width", 24, 20, $lg, $minWidth, 1);
+            @include adaptiveValue("height", 24, 20, $lg, $minWidth, 1);
+            @include adaptiveValue("font-size", 20, 18, $lg, $minWidth, 1);
+            border-radius: 50%;
+            background-color: $theme;
+        }
+    }
+}
+

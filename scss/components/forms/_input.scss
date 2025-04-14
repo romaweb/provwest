@@ -1,0 +1,101 @@
+.input {
+	@extend %inputReset;
+	width: 100%;
+	padding: rem(5) rem(10);
+	@include adaptiveValue("height", 55, 45, $lg, $minWidth, 1);
+	min-height: 100%;
+	border-radius: rem(6);
+	color: $text;
+	border: rem(1) solid $black;
+	@include adaptiveValue("font-size", 16, 14);
+
+	@include mq(md) {
+		padding: rem(5) rem(20);
+	}
+
+	&--white {
+		color: $white;
+		border: rem(1) solid $white;
+	}
+
+	&::placeholder {
+		color: lighten($text, 40);
+	}
+
+	&:focus {
+		border-color: $theme;
+	}
+
+	// &:disabled {
+	// 	cursor: not-allowed;
+	// 	border-color: $border;
+	// 	color: $text;
+	// }
+
+	// &._error {
+	// 	border-color: $errorColor;
+	// }
+
+	// @include mq(xl) {
+	// 	padding-right: rem(20);
+	// 	padding-left: rem(20);
+	// }
+
+	// &--small {
+	// 	height: rem(35);
+
+	// 	@include mq(xl) {
+	// 		padding-right: rem(20);
+	// 		padding-left: rem(20);
+	// 	}
+	// }
+
+
+
+}
+
+
+
+// .icon-field {
+// 	position: relative;
+
+// 	&::before {
+// 		@include centerY;
+// 		@extend %ic;
+// 		@include adaptiveValue("font-size", 25, 20);
+// 		color: $themeColor;
+// 		@include adaptiveValue("left", 20, 15);
+// 	}
+
+// 	&::after {
+// 		content: '';
+// 		position: absolute;
+// 		top: rem(10);
+// 		bottom: rem(10);
+// 		width: rem(1);
+// 		background-color: $border;
+// 		@include adaptiveValue("left", 60, 45);
+// 	}
+
+// 	&__input-field {
+// 		@include adaptiveValue("padding-left", 75, 55);
+// 	}
+
+// 	&--name {
+// 		&::before {
+// 			content: "\e907";
+// 		}
+// 	}
+
+// 	&--tel {
+// 		&::before {
+// 			content: "\e904";
+// 		}
+// 	}
+
+// 	&--email {
+// 		&::before {
+// 			content: "\e902";
+// 		}
+// 	}
+// }

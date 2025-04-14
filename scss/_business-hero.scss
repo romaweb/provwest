@@ -1,0 +1,94 @@
+.business-hero {
+    background-color: $lightGrey;
+    @include adaptiveValue("padding-top", 100, 50, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 110, 80, $lg, $minWidth, 1);
+    
+    @include adaptiveValue("border-bottom-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-bottom-right-radius", 45, 25, $lg, $minWidth, 1);
+
+    @include mq(lg) {
+        padding-top: rem(60);
+    }
+
+    @include mq(xl) {
+        padding-bottom: rem(130);
+    }
+
+    &__container {
+        @include mq(md) {
+            display: flex;
+            column-gap: rem(20);
+        }
+    }
+
+    &__title-block {
+        @include adaptiveValue("margin-bottom", 40, 30, $sm, $minWidth, 3);
+        @include mq(md) {
+            flex: 0 1 auto;
+            z-index: 2;
+            margin-right: percent(-386, 1215);
+        }
+    }
+
+    &__imgs {
+        @include mq(sm) {
+            margin-top: rem(-60);
+        }
+
+        @include mq(md) {
+            margin-top: 0;
+            // flex: 0 0 percent(600, 1215);
+            flex: 0 0 percent(620, 1040);
+        }
+
+        @include mq(lg) {
+            flex: 0 0 percent(600, 1215);
+        }
+        // position: relative;
+        
+    }
+
+    &__main-img {
+        @include adaptiveValue("border-radius", 15, 10, $lg, $minWidth, 1);
+        overflow: hidden;
+        img {
+            @include imgFluid;
+        }
+
+        @include mq(sm) {
+            // margin-left: rem(100);
+            margin-left: percent(178, 802);
+        }
+
+
+    }
+
+    &__imgs-bottom {
+        margin-top: percent(-60, 320);
+        display: flex;
+        align-items: flex-end;
+        column-gap: rem(20);
+        padding-left: rem(30);
+        justify-content: space-between;
+
+        @include mq(sm) {
+            padding-left: 0;
+        }
+    }
+
+    &__secondary-img {
+        @include adaptiveValue("border-radius", 10, 6, $lg, $minWidth, 1);
+        overflow: hidden;
+        max-width: rem(430);
+
+        img {
+            @include imgFluid;
+        }
+    }
+
+    &__character-img {
+        img {
+            @include imgFluid;
+        }
+    }
+}

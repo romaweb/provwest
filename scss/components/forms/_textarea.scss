@@ -1,0 +1,82 @@
+.textarea {
+	@extend %textareaReset;
+	width: 100%;
+	// padding-top: rem(8);
+	padding: rem(5) rem(10);
+	height: rem(150);
+	color: $black;
+	// border: 1px solid $black;
+	border: 1px solid $mediumGrey;
+
+	&::placeholder {
+		color: lighten($text, 15);
+	}
+
+	&:focus {
+		// border-color: $themeColor;
+		border-color: $black;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		border-color: $border;
+		color: $text;
+	}
+
+	&._error {
+		border-color: $errorColor;
+	}
+
+	@include mq(xl) {
+		padding-right: rem(20);
+		padding-left: rem(20);
+		// height: rem(45);
+	}
+
+	&--small {
+		height: rem(35);
+
+		@include mq(xl) {
+			padding-right: rem(20);
+			padding-left: rem(20);
+			// height: rem(40);
+		}
+	}
+}
+
+// .icon-textarea {
+// 	position: relative;
+// 	height: rem(130);
+	
+
+// 	&::before {
+// 		content: "\e910";
+// 		position: absolute;
+// 		top: rem(13);
+// 		@extend %ic;
+// 		@include adaptiveValue("font-size", 25, 20);
+// 		color: $themeColor;
+// 		@include adaptiveValue("left", 20, 15);
+// 	}
+
+// 	&::after {
+// 		content: '';
+// 		position: absolute;
+// 		top: rem(10);
+// 		bottom: rem(10);
+// 		width: rem(1);
+// 		background-color: $border;
+// 		@include adaptiveValue("left", 60, 45);
+// 	}
+
+// 	&__textarea {
+// 		@include adaptiveValue("padding-left", 75, 55);
+// 	}
+
+// 	@include mq(xl) {
+// 		&::before {
+// 			top: rem(15);
+// 		}
+// 	}
+
+// }

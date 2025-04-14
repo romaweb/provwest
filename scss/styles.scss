@@ -1,0 +1,312 @@
+/*! 
+ * project: WestNetwork
+ * date:    
+ * author:  Roman Haponiuk
+ * website: 
+ */
+
+@use "sass:math";
+
+// Include functions
+@import "utils/functions";
+
+// --- Colors ---
+
+$white: #fff;
+$lightGrey: #eaf0f2;
+
+$border: #bac6cf;
+$text: #3d5263;
+$black: #092946;
+// $mediumGrey: lighten($text, 25);
+
+// $placeholder: #7d838d;
+$theme: #01aced;
+$themeBgDark: #0a1f3e;
+$themeBgLight: #215686;
+// $themeLight: #3182d9;
+// $themeDark: #052547;
+// $themeLight: #6ec8fa;
+$accent: #ce4040;
+$accentBgLight: #871a1b;
+$accentBgDark: #5b0b0b;
+
+// $viber: #8074d6;
+// $telegram: #3390ec;
+// $whatsapp: #01e676;
+
+$noticeColor: #ffb300;
+$errorColor: #f44336;
+$successColor: #4caf50;
+
+
+
+// --- Fonts ---
+
+// Include fonts
+@import "fonts/fonts";
+
+// Include icon fonts
+@import "fonts/icons";
+
+$globalFont: "Commissioner",
+	"Arial",
+	sans-serif;
+
+$secondaryFont: "Exo 2",
+"Arial",
+sans-serif;
+
+// --- UI ---
+
+// $globalTransition: .75s ease-in-out 0s;
+$globalTransition: .35s ease-in-out 0s;
+// $globalShadow: 0 0 rem(5) rgba($themeColor, 0.4);
+// $globalRadius: 20px;
+
+
+// --- Layout ---
+
+$boxSizing: border-box;
+
+// Include reset
+@import "utils/reset";
+
+//Breakpoints list
+
+$xx: 0;
+// $ll: 420.98;
+$xs: 419.98;
+$sm: 767.98;
+$md: 999.98;
+$lg: 1254.98;
+// $lg: 1319.98;
+// $xl: 1529.98;
+$xl: 1799.98;
+// $xl: 1599.98;
+$mqBreakpoints: (
+	xx: em($xx),
+	// ll: em($ll),
+	xs: em($xs),
+	sm: em($sm),
+	md: em($md),
+	lg: em($lg),
+	xl: em($xl),
+);
+
+// $mqBreakpoints: (xx: em(0),
+// 	xs: em(479.98),
+// 	sm: em(767.98),
+// 	md: em(999.98),
+// 	lg: em(1169.98),
+// 	xl: em(1529.98),
+// );
+
+$minWidth: 360;
+$maxWidth: 1920;
+$maxWidthContainer: 1510+40;
+// $maxWidthWideContainer: 1175+230+230;
+
+$containerPadding: 20;
+$containerWidth: $maxWidthContainer+$containerPadding;
+
+// Include mixins
+@import "utils/mixins";
+@import "utils/placeholders";
+
+// --- Global ---
+
+
+body {
+	font-family: $globalFont;
+	font-weight: normal;
+	color: $text;
+	@include adaptiveValue("font-size", 16, 14, $lg, $minWidth);
+	// line-height: 1.6;
+	line-height: 1.6;
+	background-color: $white;
+	// scroll locked
+
+	&._lock {
+		overflow: hidden;
+		touch-action: none;
+	}
+
+}
+
+.wrapper {
+	// min-height: 100%;
+	height: 100%;
+	;
+	display: flex;
+	flex-direction: column;
+	// overflow: hidden;
+
+	// sliders fix
+	>* {
+		min-width: 0;
+	}
+}
+
+[class*="__container"] {
+	// max-width: rem($maxWidthContainer);
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+
+	@include mq(lg) {
+		max-width: rem(1270);
+	}
+
+	@include mq(xl) {
+		max-width: rem($maxWidthContainer);
+	}
+
+	// @include mq(xl) {
+	// }
+}
+
+// [class*="__outer-container"] {
+
+// 	margin: 0 auto;
+
+
+// 	@include mq(xl) {
+// 		max-width: rem(1595);
+// 		border-radius: $globalRadius;
+// 	}
+// }
+
+// [class*="__wide-container"] {
+// 	max-width: rem($maxWidthContainer);
+// 	margin: 0 auto;
+// 	padding: 0 20px;
+
+// 	@include mq(xl) {
+// 		max-width: rem($maxWidthWideContainer);
+// 	}
+// }
+
+
+
+// @keyframes spin {
+// 	0% {
+// 		transform: rotate(0deg);
+// 	}
+
+// 	100% {
+// 		transform: rotate(360deg);
+// 	}
+// }
+
+// .overlay {
+// 	visibility: hidden;
+// 	opacity: 0;
+// 	position: fixed;
+// 	z-index: 2;
+// 	left: 0;
+// 	top: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	background-color: rgba($text, .6);
+// 	transition: all $globalTransition;
+
+// 	&._active {
+// 		visibility: visible;
+// 		opacity: 1;
+// 	}
+// }
+
+// --- Including files ---
+
+// Components
+@import "components/forms/button";
+@import "components/forms/input";
+// @import "components/forms/radio";
+// @import "components/forms/input-file";
+// @import "components/forms/textarea";
+@import "components/forms/field-error";
+// @import "components/forms/checkbox";
+// @import "components/forms/quantity";
+// @import "components/social";
+// @import "components/breadcrumbs";
+// @import "components/table";
+
+@import "components/popup";
+@import "components/loader";
+// @import "components/search-popup";
+@import "components/msg-popup";
+// @import "components/cookies-popup";
+// @import "components/preloader";
+@import "components/running-text";
+@import "components/tabs";
+@import "components/paginator";
+
+// Libs 
+@import "libs/swiper";
+// @import "libs/nouislider";
+// @import "libs/choices";
+
+// UI
+@import "ui";
+
+//Layout
+@import "proposals";
+@import "coverage";
+@import "features";
+@import "faqz";
+@import "blog";
+@import "services";
+@import "text-block";
+@import "products";
+@import "tv-promo";
+@import "about";
+@import "connection";
+@import "tariffs";
+@import "contacts";
+@import "offer";
+@import "video-secur";
+@import "network";
+
+@import "footer";
+@import "business-features";
+@import "business-hero";
+@import "donate";
+
+@import "hero";
+@import "header";
+@import "sub-header";
+// @import "blog-page";
+// @import "branch-page";
+@import "text-page";
+@import "err404";
+
+// @import "footer";
+// @import "gallery";
+// @import "promotion";
+// @import "cart";
+// @import "hero";
+// @import "header";
+// @import "text-block";
+// @import "products-slider";
+// ;
+// @import "sub-header";
+// @import "catalog";
+// @import "paginator";
+// @import "product-page";
+// @import "text-page";
+// @import "error-page";
+// @import "search-info";
+// @import "user-account";
+// @import "auth";
+// @import "order";
+// @import "mobile-nav";
+// @import "order-success";
+
+// @import "fav-unregistered";
+// @import "nav-popup";
+// @import "header";
+// @import "gallery";
+// @import "text-page";
+// @import "error-page";
+

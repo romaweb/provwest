@@ -1,0 +1,662 @@
+.header {
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    z-index: 2;
+  }
+
+  @include mq(lg) {
+    &::before {
+      content: none;
+    }
+  }
+
+  &__top {
+    background-color: $white;
+  }
+
+  &__bottom {
+    background-color: $black;
+
+    @include mq(lg) {
+      background-color: $lightGrey;
+    }
+  }
+
+  &__top-body {
+    @include mq(lg) {
+      display: flex;
+      align-items: center;
+      column-gap: rem(30);
+    }
+  }
+
+  &__category-menu {
+    margin-right: auto;
+
+    @include mq(lg) {
+      order: 1;
+    }
+  }
+
+  
+
+  &__social {
+    @include mq(lg) {
+      order: 2;
+    }
+  }
+
+  &__contacts {
+    @include mq(lg) {
+      order: 3;
+    }
+  }
+
+  &__btn {
+    @include mq(lg) {
+      order: 4;
+    }
+  }
+
+  &__bottom-body {
+    min-height: rem(75);
+    padding: rem(8) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mq(lg) {
+      padding: rem(25) 0;
+    }
+  }
+
+  &__actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    column-gap: rem(12);
+    margin-left: rem(20);
+
+    &._hidden {
+      display: none;
+    }
+
+    @include mq(lg) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    flex: 0 0 auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 3;
+
+    .logo__item {
+      fill: $white;
+
+      @include mq(lg) {
+        fill: $themeBgLight;
+      }
+    }
+
+    @include mq(lg) {
+      margin-right: rem(50);
+    }
+  }
+
+  &__main-menu {
+    position: fixed;
+    overflow-y: auto;
+    left: 0;
+    height: 100%;
+    padding: rem(100) rem(20);
+    transform: translateX(-100%);
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    background-color: $black;
+    transition: all $globalTransition;
+
+    &._open {
+      transform: translateX(0);
+    }
+    @include mq(lg) {
+      margin-left: auto;
+      padding: 0;
+      flex: 1 1 auto;
+      position: static;
+      padding: 0;
+      transform: translateX(0);
+      // margin-left: rem(80);
+      background-color: transparent;
+    }
+  }
+
+  &__lnk {
+    flex: 0 0 auto;
+  }
+
+  &__burger {
+  }
+
+  &__btn-close {
+    display: none;
+    position: relative;
+    z-index: 2;
+
+    &._active {
+      display: block;
+    }
+
+    @include mq(lg) {
+      &._active {
+        display: none;
+      }
+    }
+  }
+
+
+}
+
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include mq(lg) {
+    flex-direction: row;
+  }
+
+  &__category-menu {
+    @include mq(0, $lg) {
+      order: 1;
+      margin-bottom: rem(40);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: rem(18);
+
+    @include mq(0, $lg) {
+      order: 2;
+      margin-bottom: rem(35);
+    }
+
+    @include mq(lg) {
+      flex: 1 1 auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      row-gap: rem(5);
+      column-gap: rem(30);
+    }
+
+    @include mq(xl) {
+      margin-right: rem(50);
+    }
+  }
+
+  &__item {
+  }
+
+  &__lnk {
+    text-align: center;
+    display: block;
+    font-size: rem(20);
+    color: $white;
+    line-height: 1.4;
+    transition: all $globalTransition;
+
+    
+
+    @include hover {
+      color: $theme;
+    }
+
+    @include mq(lg) {
+      color: $black;
+      font-size: rem(16);
+      text-align: left;
+
+      &--active {
+        color: $theme;
+      }
+    }
+  }
+
+  &__account-lnk {
+    @include mq(0, $lg) {
+      order: 3;
+      margin-bottom: rem(35);
+    }
+    @include mq(lg) {
+      margin-left: auto;
+    }
+  }
+
+  &__header-contacts {
+    @include mq(0, $lg) {
+      margin-bottom: rem(20);
+      order: 4;
+    }
+  }
+
+  &__btn {
+    color: $white;
+
+    @include mq(0, $lg) {
+      order: 5;
+      margin-bottom: rem(35);
+    }
+
+    @include mq(lg) {
+      color: $black;
+    }
+  }
+
+  &__social {
+    @include mq(0, $lg) {
+      order: 6;
+    }
+  }
+
+  
+}
+.account-lnk {
+  display: flex;
+  align-items: center;
+  color: $white;
+  font-size: rem(16);
+  line-height: 1.4;
+  transition: all $globalTransition;
+
+  &::before {
+    width: rem(32);
+    height: rem(32);
+    font-size: rem(24);
+    margin-right: rem(8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $theme;
+    border-radius: 50%;
+    transition: all $globalTransition;
+  }
+
+  @include hover {
+    &::before {
+      background-color: $themeBgLight;
+    }
+  }
+
+  @include mq(lg) {
+    color: $black;
+
+    &::before {
+      color: $white;
+    }
+  }
+}
+
+.header-lnk {
+  display: inline-block;
+  color: $white;
+  font-size: rem(28);
+  transition: all $globalTransition;
+
+  @include hover {
+    color: $theme;
+  }
+}
+
+// .header {
+//     @include adaptiveValue("padding-top", 25, 15);
+//     @include adaptiveValue("padding-bottom", 25, 15);
+//     flex: 0 0 auto;
+//     background-color: $themeDark;
+
+//     &__container {
+//         display: flex;
+//         align-items: center;
+//     }
+
+//     &__logo {
+//         margin-right: auto;
+//     }
+
+//     &__main-menu {
+//         position: fixed;
+//         overflow-y: auto;
+// 		left: 0;
+// 		height: 100%;
+//         padding: rem(60) 0;
+// 		transform: translateX(-100%);
+// 		width: 100%;
+// 		top: 0;
+// 		z-index: 3;
+// 		background-color: $black;
+// 		transition: all $globalTransition;
+
+//         &._open {
+// 			transform: translateX(0);
+// 		}
+
+//         @include mq(lg) {
+//             flex: 1 1 auto;
+//             position: static;
+//             padding: 0;
+//             transform: translateX(0);
+//             margin-left: rem(80);
+//             background-color: transparent;
+//         }
+//     }
+
+//     &__tel {
+//         margin-right: rem(30);
+
+//         @include mq(lg) {
+//             display: none;
+//         }
+//     }
+
+//     &__burger {
+//         @include mq(lg) {
+//             display: none;
+//         }
+//     }
+// }
+
+// .main-menu {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     gap: rem(40);
+
+//     @include mq(lg) {
+//         flex-direction: row;
+//         justify-content: space-between;
+//     }
+
+//     &__list {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         gap: rem(20);
+
+//         @include mq(lg) {
+//             order: 1;
+//             flex-wrap: wrap;
+//             flex-direction: row;
+//             align-items: flex-start;
+//             gap: rem(30);
+
+//         }
+//     }
+
+//     &__item {
+//     }
+
+//     &__lnk {
+//         color: $white;
+//         font-size: rem(20);
+//         font-family: $secondaryFont;
+//         transition: all $globalTransition;
+
+//         @include hover {
+//             color: $themeColor;
+//         }
+//     }
+
+//     &__telephones {
+//         flex: 0 0 auto;
+//         @include mq(lg) {
+//             order: 2;
+//         }
+
+//     }
+
+//     &__language-btn {
+//         flex: 0 0  auto;
+//         @include mq(lg) {
+//             order: 3;
+//         }
+//     }
+
+//     &__close {
+//         position: absolute;
+//         top: rem(20);
+//         right: rem(20);
+
+//         @include mq(lg) {
+//             display: none;
+//         }
+//     }
+// }
+// .language-btn {
+//     @extend %btnReset;
+//     font-size: rem(14);
+//     text-transform: uppercase;
+//     font-weight: 500;
+//     color: $white;
+//     font-family: $secondaryFont;
+//     border: rem(1) solid $themeColor;
+//     padding: rem(5) rem(15);
+//     letter-spacing: em(1.5, 12);
+//     transition: all $globalTransition;
+
+//     @include hover {
+//         background-color: $themeColor;
+//     }
+// }
+
+// .header-tel {
+//     font-size: 0;
+
+//     &::before {
+//         font-size: rem(26);
+//     }
+// }
+
+// .tel-block {
+//     display: flex;
+//     flex-direction: column;
+// }
+
+.category-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: rem(15);
+
+  @include mq(lg) {
+    column-gap: rem(30);
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  &__item {
+  }
+
+  &__lnk {
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    line-height: 1.4;
+    padding-bottom: rem(3);
+    font-size: rem(20);
+    color: $white;
+    transition: all $globalTransition;
+    border-bottom: rem(3) solid transparent;
+
+    &--active {
+      position: relative;
+      color: $accent;
+      border-color: $accent;
+    }
+
+    @include hover {
+      color: $accent;
+    }
+
+    @include mq(lg) {
+      font-size: rem(16);
+      text-align: left;
+      color: $black;
+      padding: rem(20) 0 rem(25);
+      border-bottom: 0;
+      border-top: rem(3) solid transparent;
+
+      &--active {
+        border-color: $accent;
+        color: $accent;
+      }
+    }
+  }
+}
+
+.menu-burger {
+  @extend %btnReset;
+  position: relative;
+  width: rem(28);
+  height: rem(24);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: rem(2);
+    background-color: $theme;
+    left: 0;
+    border-radius: rem(2);
+    transition: all $globalTransition;
+  }
+
+  &::after {
+    top: 0;
+    // transition: all $globalTransition;
+  }
+
+  &::before {
+    // width: calc(100% - rem(10));
+    bottom: 0;
+  }
+
+  span {
+    @include centerXY;
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    height: rem(2);
+    background-color: $theme;
+    border-radius: rem(2);
+    transition: all $globalTransition;
+  }
+
+  @include hover {
+    span,
+    &::before,
+    &::after {
+      background-color: $white;
+    }
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.header-contacts {
+  position: relative;
+  z-index: 4;
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+
+  &__toggle {
+    @extend %btnReset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    color: $white;
+
+    @include mq(lg) {
+      color: $black;
+    }
+
+    &::before {
+      margin-left: rem(8);
+      content: "\e90a";
+      font-family: "icons";
+      transform: rotate(-90deg);
+      color: $theme;
+      font-size: rem(20);
+      transition: transform $globalTransition;
+    }
+
+    &._active::before {
+      transform-origin: center center;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__body {
+    // border: rem(1) solid $border;
+    background-color: $white;
+    padding: rem(15) rem(10) rem(12);
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    // flex: 0 0 auto;
+    // width: rem(300);
+    // width: auto;
+    // margin: auto;
+    // left: 0;
+    // right: 0;
+    text-align: center;
+    @include adaptiveValue("border-radius", 8, 6, $lg, $minWidth, 1);
+    top: calc(100% + rem(10));
+
+    @include mq(lg) {
+      box-shadow: 0px rem(5) 0px 0px $border;
+    }
+  }
+
+  // &__container {
+  //   display: flex;
+  //   flex-direction: column;
+  //   row-gap: rem(8);
+  // }
+
+  &__tel {
+    flex: 0 0 100%;
+    &:not(:last-of-type) {
+      margin-bottom: rem(8);
+    }
+  }
+}

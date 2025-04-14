@@ -1,0 +1,82 @@
+// .breadcrumbs-mobile {
+
+// 	&__lnk {
+// 		font-weight: 600;
+// 		display: inline-flex;
+// 		color: $black;
+// 		font-size: rem(16);
+// 		transition: color $globalTransition;
+
+// 		&::before {
+// 			content: "\e900";
+// 			margin-right: rem(10);
+// 			flex: 0 0 auto;
+// 			font-family: "icons";
+// 			font-size: rem(12);
+// 			color: $black;
+// 			transform: rotate(90deg);
+// 			transition: color $globalTransition;
+// 		}
+
+// 		@include hover {
+// 			color: $themeLight;
+
+// 			&::before {
+// 				color: $themeLight;
+// 			}
+// 		}
+// 	}
+// }
+
+
+.breadcrumbs {
+	display: flex;
+	flex-wrap: wrap;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		flex: 0 1 auto;
+		margin-right: rem(10);
+
+		&::after {
+			content: '';
+			margin-left: rem(10);
+			margin-top: rem(2);
+			flex: 0 0 auto;
+			display: block;
+			border-radius: 50%;
+			width: rem(5);
+			height: rem(5);
+			background-color: $white;
+		}
+
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+
+		&:last-child .breadcrumbs__lnk {
+			color: $themeLight;
+		}
+	}
+
+	&__lnk {
+		font-weight: 500;
+		font-size: rem(16);
+		display: block;
+		font-family: $secondaryFont;
+		color: $white;
+		transition: color $globalTransition;
+		line-height: 1.4;
+
+		@include hover {
+			color: $themeColor;
+		}
+	}
+
+	// &__item-text {
+	// 	font-size: rem(16);
+	// }
+}

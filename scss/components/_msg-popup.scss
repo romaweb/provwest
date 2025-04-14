@@ -1,0 +1,43 @@
+.msg-popup {
+    width: 100%;
+    position: fixed;
+    z-index: 8;
+    opacity: .5;
+    visibility: hidden;
+    @include adaptiveValue("top", 60, 20);
+    // top: rem(20);
+    transform: translate(0px, -100%);
+    transition: all $globalTransition;
+
+    &._active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+        visibility: visible;
+    }
+
+
+    &__container {
+    }
+
+    &__body {
+        margin: auto;
+        max-width: rem(600);
+        background-color: $themeBgLight;
+        padding: rem(15) rem(20);
+         color: $white;
+         line-height: 1.4;
+         @include adaptiveValue("border-radius", 10, 5, $lg, $minWidth, 1);
+        box-shadow: 0px rem(5) 0px 0px $themeBgDark;
+
+        @include mq(lg)  {
+            padding: rem(25) rem(30);
+        }
+
+        @include mq(xl)  {
+            // padding: rem(30) rem(50);
+        }
+
+    }
+
+  }
+  

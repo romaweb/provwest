@@ -1,0 +1,74 @@
+.paginator {
+	@include adaptiveValue("margin-top", 60, 40);
+		display: flex;
+		flex-wrap: wrap;
+        column-gap: rem(5);
+		align-items: stretch;
+        justify-content: center;
+	@include mq(lg) {
+		column-gap: rem(10);
+	}
+
+	&__item {
+        flex: 0 0 auto;
+        @include adaptiveValue("height", 45, 35, $lg, $minWidth, 1);
+	}
+
+	&__lnk {
+        font-family: $secondaryFont;
+		display: flex;
+        height: 100%;
+		align-items: center;
+        justify-items: center;
+        @include adaptiveValue("font-size", 18, 14, $lg, $minWidth, 1);
+        @include adaptiveValue("padding-left", 18, 16, $lg, $minWidth, 1);
+        @include adaptiveValue("padding-right", 18, 16, $lg, $minWidth, 1);
+		// padding: rem(8) rem(18);
+		font-weight: 600;
+		color: $text;
+		transition: all $globalTransition;
+
+		@include hover {
+			color: $theme;
+		}
+	}
+
+	&__lnk-active {
+		font-family: $secondaryFont;
+		display: flex;
+        height: 100%;
+		align-items: center;
+        justify-items: center;
+        @include adaptiveValue("font-size", 18, 14, $lg, $minWidth, 1);
+        @include adaptiveValue("padding-left", 18, 16, $lg, $minWidth, 1);
+        @include adaptiveValue("padding-right", 18, 16, $lg, $minWidth, 1);
+		color: $white;
+		background-color: $theme;
+		border-radius: rem(6);
+	}
+
+	
+
+	&__arrow-lnk {
+		display: flex;
+		align-items: center;
+		color: $text;
+		height: 100%;
+		font-size: rem(22);
+		line-height: rem(22);
+		transition: all $globalTransition;
+
+		@include hover {
+			color: $theme;
+		}
+
+		&--next {
+			margin-left: rem(10);
+            transform: rotate(180deg);
+		}
+
+		&--prev {
+			margin-right: rem(10);
+		}
+	}
+}

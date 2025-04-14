@@ -1,0 +1,206 @@
+.popup {
+	position: fixed;
+	// display: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: 6;
+	left: 0;
+	// transform: translateX(100%);
+	opacity: 0;
+	visibility: hidden;
+	background-color: rgba($themeBgDark, .90);
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: all $globalTransition;
+
+	&._open {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+
+		.popup__content {
+			transform: translate(0, 0);
+		}
+
+		.popup__video-content {
+			transform: translate(0, 0);
+		}
+	}
+
+
+	&__body {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: rem(50) 0;
+		// padding: rem(15) rem(10);
+
+    	@include mq(sm) {
+       		padding: rem(60) rem(20);
+   		 }
+
+			@include mq(md) {
+				padding: rem(100) rem(20);
+			 }
+	}
+
+
+	&__content {
+		position: relative;
+		// display: flex;
+		// flex-direction: column;
+		// align-items: stretch;
+		width: 100%;
+		max-width: rem(520);
+		@include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+		// padding: rem(40) rem(20) rem(50);
+		// @include adaptiveValue("padding-top", 35, 30);
+		// @include adaptiveValue("padding-bottom", 40, 35);
+		// @include adaptiveValue("padding-left", 30, 20);
+		// @include adaptiveValue("padding-right", 30, 20);
+		// position: relative;
+		transition: all $globalTransition;
+		// border-radius: $globalRadius;
+		transform: translate(0, -100%);
+		background-color: $white;
+
+		padding: rem(30) rem(20) rem(40);
+
+    	// @include mq(md) {
+		// 	padding: rem(20) rem(20) rem(25);
+		//  }
+
+		@include mq(lg) {
+			padding: rem(40) rem(30) rem(50);
+		}
+
+		@include mq(xl) {
+			padding: rem(60) rem(50) rem(60);
+		}
+
+	}
+
+	&__video-content {
+		position: relative;
+		// padding-top: rem(40);
+		width: 100%;
+		transition: all $globalTransition;
+		transform: translate(0, -100%);
+		max-width: rem(1200);
+	}
+
+	&__close {
+		position: absolute;
+		right: rem(20);
+		top: rem(20);
+	
+
+		@include mq(lg) {
+			right: rem(30);
+			top: rem(30);
+		}
+	}
+
+	&__video-close {
+		position: absolute;
+		top: rem(-35);
+		right: 0;
+	}
+
+	&__video {
+		@include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+		overflow: hidden;
+		// position: absolute;
+		// right: rem(20);
+		// top: rem(20);
+	
+
+		@include mq(lg) {
+			// right: rem(30);
+			// top: rem(30);
+		}
+	}
+
+	// &__form {}
+
+
+	// &__close {
+	// 	position: absolute;
+	// 	top: 0;
+	// 	right: 0;
+	// 	@include adaptiveValue("top", -40, -35);
+	// }
+
+	// .popup__popup-msg
+	// &__popup-msg {
+	// 	position: absolute;
+	// 	top: 40px;
+	// 	bottom: 40px;
+	// 	left: 20px;
+	// 	right: 20px;
+	// 	transition: all $global-transition;
+	// 	visibility: hidden;
+	// 	opacity: 0;
+	// 	background-color: $white;
+
+	// 	@include mq(sm) {
+	// 		top: 50px;
+	// 		bottom: 50px;
+	// 		left: 50px;
+	// 		right: 50px;
+	// 	}
+
+	// 	&--active {
+	// 		visibility: visible;
+	// 		opacity: 1;
+	// 	}
+	// }
+}
+
+// .form {
+// 	&__title {
+// 		margin-bottom: rem(10);
+// 	}
+
+// 	&__text {
+// 		line-height: 1.35;
+// 		margin-bottom: rem(15);
+// 	}
+
+// 	&__fields {
+// 		@include adaptiveValue("margin-bottom", 30, 20);
+		
+// 	}
+
+// 	&__form-field {
+
+// 		&:not(:last-child) {
+// 			@include adaptiveValue("margin-bottom", 20, 15);
+// 		}
+		
+// 	}
+// }
+
+// .form-field {
+
+// 	&--error {
+// 		.form-field__input {
+// 			border-color: $errorColor;
+// 		}
+// 	}
+
+// 	&__label {
+// 		font-weight: 500;
+// 		font-size: rem(14);
+// 		line-height: 1.4;
+// 		color: $black;
+// 		margin-bottom: rem(8);
+// 	}
+
+// 	&__error {
+// 		margin-top: rem(2);
+		
+// 	}
+// }

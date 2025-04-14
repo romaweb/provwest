@@ -1,0 +1,33 @@
+.preloader {
+    position: fixed;
+	visibility: hidden;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	opacity: 0;
+	z-index: 7;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba($white, .65);
+	transition: all $globalTransition;
+
+
+	&._active {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__loader {
+        // @include centerXY();
+		// margin-top: 10%;
+		border: rem(8) solid $border;
+		border-radius: 50%;
+		border-top: rem(8) solid $themeColor;
+		width: rem(70);
+		height: rem(70);
+		animation: spin 2s linear infinite;
+	}
+}

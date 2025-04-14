@@ -1,0 +1,229 @@
+.products {
+    @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-left-radius", 45, 25, $lg, $minWidth, 1);
+    @include adaptiveValue("border-top-right-radius", 45, 25, $lg, $minWidth, 1);
+    background-color: $lightGrey;
+
+    @include mq(xl) {
+        border-radius: rem(60) rem(60) 0 0;
+        padding-top: rem(110);
+        padding-bottom: rem(110);
+    }
+
+    &__container {
+    }
+
+    &__header {
+        @include adaptiveValue("margin-bottom", 15, 0);
+
+        @include mq(sm) {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            column-gap: rem(20);
+        }
+
+        @include mq(lg) {
+            column-gap: rem(30);
+        }
+
+        @include mq(xl) {
+            column-gap: rem(50);
+        }
+    }
+
+    &__title-block {
+        margin-bottom: rem(15);
+
+        @include mq(xs) {
+            width: rem(380);
+        }
+
+        @include mq(sm) {
+            flex: 0 0 auto;
+            margin-bottom: 0;
+        }
+
+        @include mq(md) {
+            width: calc(50% - rem(20));            
+        }
+
+        @include mq(lg) {
+           width: rem(490);
+            
+        }
+
+        @include mq(xl) {
+           width: rem(600);
+        }
+    }
+
+    &__slider-arrows {
+        display: none;
+        @include mq(md) {
+            display: flex;
+            margin-top: rem(30);
+        }
+    }
+
+    &__body {
+        
+        margin-right: rem(-20);
+
+        @include mq(md) {
+            margin-right: 0;
+        }
+    }
+
+
+
+    &__card {
+        // width: 300px;
+        height: auto;
+    }
+
+    .swiper-wrapper {
+        align-items: stretch;
+    }
+}
+
+
+.slider-arrows {
+
+    &__arrow {
+    }
+
+    &__arrow--prev {
+    }
+
+    &__arrow--next {
+    }
+}
+
+.product-card {
+    padding-top: rem(27);
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    &:hover {
+        .product-card__body {
+            transform: translateY(rem(5));
+        }
+
+        img {
+            transform: scale(1.04);
+        }
+        
+    }
+
+    @include mq(xl) {
+        padding-top: rem(30);
+    }
+
+    &__body {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        position: relative;
+        background-color: $white;
+        padding: rem(20);
+        padding-bottom: rem(40);
+        @include adaptiveValue("border-radius", 20, 15, $lg, $minWidth, 1);
+        transition: all $globalTransition;
+
+        @include mq(lg) {
+            padding: rem(30);
+            padding-bottom: rem(50);
+        }
+    }
+
+    &__img {
+        @extend %ibg;
+        padding-top: 100%;
+        margin-bottom: rem(5);
+
+        img {
+            transition: all $globalTransition;
+        }
+    }
+
+    &__label {
+        
+        top: rem(-27);
+        position: absolute;
+        z-index: 2;
+        right: rem(20);
+
+        @include mq(lg) {
+            right: rem(30);
+        }
+
+        @include mq(xl) {
+            top: rem(-30);
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(5);
+    }
+
+    &__descr {
+        flex: 1 1 auto;
+        line-height: 1.4;
+        margin-bottom: rem(5);
+    }
+
+    &__price {
+    }
+
+    &__footer {
+        transform: translateY(-50%);
+        padding: 0 rem(20);
+        display: flex;
+
+        @include mq(lg) {
+            padding: 0 rem(30);
+        }
+    }
+
+    &__btn {
+        width: 100%;
+    }
+}
+
+.small-title {
+}
+.price {
+}
+.btn {
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(54);
+    height: rem(54);
+    border-radius: 50%;
+    color: $white;
+    background-color: $theme;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: rem(14);
+    transform: rotate(-15deg);
+
+    @include mq(sm) {
+        width: rem(64);
+        height: rem(64);
+        font-size: rem(16);
+        letter-spacing: rem(1);
+    }
+
+    @include mq(xl) {
+        width: rem(72);
+        height: rem(72);
+    }
+}
