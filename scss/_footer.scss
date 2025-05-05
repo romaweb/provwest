@@ -8,11 +8,12 @@
         padding-bottom: rem(110);
     }
 
-    &__container {
+    &__top {
         display: flex;
         align-items: center;
         flex-direction: column;
         row-gap: rem(10);
+        @include adaptiveValue("margin-bottom", 40, 20);
 
         @include mq(sm) {
             flex-direction: row;
@@ -287,3 +288,49 @@
         }
     }
 }
+
+
+.footer-app {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: rem(8);
+
+    @include mq(sm) {
+        flex-direction: row;
+        align-items: center;
+        column-gap: rem(20);
+    }
+    &__title {
+        flex: 0 1 auto;
+    }
+
+    &__lnks {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        column-gap: rem(10);
+        flex: 0 0 auto;
+
+        @include mq(sm) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__item {
+        flex: 0 0 rem(120);
+        transition: all $globalTransition;
+        
+        @include hover {
+            opacity: .8;
+        }
+
+        @include mq(md) {
+            flex: 0 0 rem(140);
+        }
+        img {
+            @include imgFluid;
+        }
+    }
+}
+

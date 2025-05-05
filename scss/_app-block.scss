@@ -62,13 +62,19 @@
             &::after {
                 content: '';
                 @include centerXY;
-                @include adaptiveValue("width", 500, 300);
-                @include adaptiveValue("height", 500, 300);
+                @include adaptiveValue("width", 450, 300);
+                @include adaptiveValue("height", 450, 300);
                 // width: rem(320);
                 // height: rem(320);
                 background-color: rgba($themeBgDark, 20%);
                 border-radius: 50%;
                 z-index: 0;
+            }
+
+            transition: all $globalTransition;
+
+            @include hover {
+                transform: translateY(rem(8));
             }
             
         // }
@@ -150,6 +156,11 @@
     row-gap: rem(10);
     &__item {
         display: block;
+        transition: all $globalTransition;
+        
+        @include hover {
+            opacity: .8;
+        }
 
         img {
             @include imgFluid;
