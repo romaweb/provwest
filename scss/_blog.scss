@@ -1,8 +1,10 @@
 .blog {
   @include adaptiveValue("padding-top", 90, 60, $lg, $minWidth, 1);
+  @include adaptiveValue("padding-bottom", 90, 60, $lg, $minWidth, 1);
 
   @include mq(xl) {
     padding-top: rem(110);
+    padding-bottom: rem(110);
   }
   &__container {
   }
