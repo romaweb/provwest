@@ -437,7 +437,7 @@
   }
 
   &__radios-item {
-    flex: 0 1 30%;
+    flex: 0 1 calc(50% - rem(8));
   }
 
   &__label {

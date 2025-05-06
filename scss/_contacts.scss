@@ -188,7 +188,8 @@
   }
 
   &--small {
-    font-size: rem(18);
+    // font-size: rem(18);
+    font-size: rem(15);
   }
 }
 
@@ -213,8 +214,10 @@
 .social {
   display: flex;
   align-items: stretch;
-  column-gap: rem(20);
-  row-gap: rem(20);
+  flex-wrap: wrap;
+  // column-gap: rem(20);
+  column-gap: rem(12);
+  row-gap: rem(12);
 
   &__item {
     flex: 0 0 auto;
@@ -239,9 +242,12 @@
 
     &--small {
       @include mq(lg) {
-        height: rem(36);
-        width: rem(36);
-        font-size: rem(24);
+        // height: rem(36);
+        // width: rem(36);
+
+        height: rem(30);
+        width: rem(30);
+        font-size: rem(20);
       }
     }
 

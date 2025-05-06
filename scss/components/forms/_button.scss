@@ -53,15 +53,16 @@
 
 
 	&--small {
-		padding-top: rem(10);
-		padding-bottom: rem(12);
-		// @include adaptiveValue("padding-top", 12, 10, $lg, $minWidth, 1);
-    	// @include adaptiveValue("padding-bottom", 16, 13, $lg, $minWidth, 1);
-		// @include adaptiveValue("padding-top", 9, 7, $lg, $minWidth, 1);
-    	// @include adaptiveValue("padding-bottom", 12, 10, $lg, $minWidth, 1);
-		@include adaptiveValue("padding-left", 40, 28, $lg, $minWidth, 1);
-		@include adaptiveValue("padding-right", 40, 28, $lg, $minWidth, 1);
-		@include adaptiveValue("font-size", 16, 15, $lg, $minWidth, 1);
+		// padding-top: rem(10);
+		// padding-bottom: rem(12);
+		padding-top: rem(8);
+		padding-bottom: rem(10);
+		// @include adaptiveValue("padding-left", 40, 28, $lg, $minWidth, 1);
+		// @include adaptiveValue("padding-right", 40, 28, $lg, $minWidth, 1);
+		// @include adaptiveValue("font-size", 16, 15, $lg, $minWidth, 1);
+		@include adaptiveValue("padding-left", 28, 26, $lg, $minWidth, 1);
+		@include adaptiveValue("padding-right", 28, 26, $lg, $minWidth, 1);
+		@include adaptiveValue("font-size", 14, 13, $lg, $minWidth, 1);
 	}
 
 	&--outline {
@@ -127,8 +128,7 @@
 	padding-top: rem(8);
 	padding-bottom: rem(8);
 	border-radius: rem(6);
-	@include adaptiveValue("padding-left", 40, 28, $lg, $minWidth, 1);
-	@include adaptiveValue("padding-right", 40, 28, $lg, $minWidth, 1);
+	
 	transition: all $globalTransition;
 
 
@@ -159,11 +159,31 @@
 	}
 
 	&--border {
+		@include adaptiveValue("padding-left", 40, 28, $lg, $minWidth, 1);
+		@include adaptiveValue("padding-right", 40, 28, $lg, $minWidth, 1);
 		border: rem(1) solid $accent;
 
 		@include hover {
 			border-color: $theme;
 		}
+	}
+
+	&--small {
+		
+		&::before {
+			font-size: rem(20);
+		}
+		.location-btn__icon {
+			font-size: rem(14);
+		}
+
+		.location-btn__text {
+			font-size: rem(14);
+		}
+	}
+
+	&--white {
+		color: $white;
 	}
 }
 

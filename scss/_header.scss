@@ -39,11 +39,21 @@
     }
   }
 
+
   &__category-menu {
     margin-right: auto;
 
     @include mq(lg) {
+      flex: 0 0 auto;
       order: 1;
+    }
+  }
+
+  &__location-btn {
+    @include mq(lg) {
+      order: 2;
+      margin-right: auto;
+      flex: 1 1 auto;
     }
   }
 
@@ -51,19 +61,22 @@
 
   &__social {
     @include mq(lg) {
-      order: 2;
+      order: 3;
+      flex: 0 0 auto;
     }
   }
 
   &__contacts {
     @include mq(lg) {
-      order: 3;
+      order: 4;
+      flex: 0 0 auto;
     }
   }
 
   &__btn {
     @include mq(lg) {
-      order: 4;
+      order: 5;
+      flex: 0 0 auto;
     }
   }
 
@@ -185,6 +198,14 @@
     }
   }
 
+  &__location-btn {
+    @include mq(0, $lg) {
+      color: $white;
+      order: 2;
+      margin-bottom: rem(35);
+    }
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -193,7 +214,7 @@
     row-gap: rem(18);
 
     @include mq(0, $lg) {
-      order: 2;
+      order: 3;
       margin-bottom: rem(35);
     }
 
@@ -240,7 +261,7 @@
 
   &__account-lnk {
     @include mq(0, $lg) {
-      order: 3;
+      order: 4;
       margin-bottom: rem(35);
     }
     @include mq(lg) {
@@ -251,7 +272,7 @@
   &__header-contacts {
     @include mq(0, $lg) {
       margin-bottom: rem(20);
-      order: 4;
+      order: 5;
     }
   }
 
@@ -259,7 +280,7 @@
     color: $white;
 
     @include mq(0, $lg) {
-      order: 5;
+      order: 6;
       margin-bottom: rem(35);
     }
 
@@ -270,7 +291,7 @@
 
   &__social {
     @include mq(0, $lg) {
-      order: 6;
+      order: 7;
     }
   }
 
@@ -323,158 +344,6 @@
   }
 }
 
-// .header {
-//     @include adaptiveValue("padding-top", 25, 15);
-//     @include adaptiveValue("padding-bottom", 25, 15);
-//     flex: 0 0 auto;
-//     background-color: $themeDark;
-
-//     &__container {
-//         display: flex;
-//         align-items: center;
-//     }
-
-//     &__logo {
-//         margin-right: auto;
-//     }
-
-//     &__main-menu {
-//         position: fixed;
-//         overflow-y: auto;
-// 		left: 0;
-// 		height: 100%;
-//         padding: rem(60) 0;
-// 		transform: translateX(-100%);
-// 		width: 100%;
-// 		top: 0;
-// 		z-index: 3;
-// 		background-color: $black;
-// 		transition: all $globalTransition;
-
-//         &._open {
-// 			transform: translateX(0);
-// 		}
-
-//         @include mq(lg) {
-//             flex: 1 1 auto;
-//             position: static;
-//             padding: 0;
-//             transform: translateX(0);
-//             margin-left: rem(80);
-//             background-color: transparent;
-//         }
-//     }
-
-//     &__tel {
-//         margin-right: rem(30);
-
-//         @include mq(lg) {
-//             display: none;
-//         }
-//     }
-
-//     &__burger {
-//         @include mq(lg) {
-//             display: none;
-//         }
-//     }
-// }
-
-// .main-menu {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     gap: rem(40);
-
-//     @include mq(lg) {
-//         flex-direction: row;
-//         justify-content: space-between;
-//     }
-
-//     &__list {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         gap: rem(20);
-
-//         @include mq(lg) {
-//             order: 1;
-//             flex-wrap: wrap;
-//             flex-direction: row;
-//             align-items: flex-start;
-//             gap: rem(30);
-
-//         }
-//     }
-
-//     &__item {
-//     }
-
-//     &__lnk {
-//         color: $white;
-//         font-size: rem(20);
-//         font-family: $secondaryFont;
-//         transition: all $globalTransition;
-
-//         @include hover {
-//             color: $themeColor;
-//         }
-//     }
-
-//     &__telephones {
-//         flex: 0 0 auto;
-//         @include mq(lg) {
-//             order: 2;
-//         }
-
-//     }
-
-//     &__language-btn {
-//         flex: 0 0  auto;
-//         @include mq(lg) {
-//             order: 3;
-//         }
-//     }
-
-//     &__close {
-//         position: absolute;
-//         top: rem(20);
-//         right: rem(20);
-
-//         @include mq(lg) {
-//             display: none;
-//         }
-//     }
-// }
-// .language-btn {
-//     @extend %btnReset;
-//     font-size: rem(14);
-//     text-transform: uppercase;
-//     font-weight: 500;
-//     color: $white;
-//     font-family: $secondaryFont;
-//     border: rem(1) solid $themeColor;
-//     padding: rem(5) rem(15);
-//     letter-spacing: em(1.5, 12);
-//     transition: all $globalTransition;
-
-//     @include hover {
-//         background-color: $themeColor;
-//     }
-// }
-
-// .header-tel {
-//     font-size: 0;
-
-//     &::before {
-//         font-size: rem(26);
-//     }
-// }
-
-// .tel-block {
-//     display: flex;
-//     flex-direction: column;
-// }
 
 .category-menu {
   width: 100%;
@@ -485,9 +354,10 @@
   row-gap: rem(15);
 
   @include mq(lg) {
-    column-gap: rem(30);
+    // column-gap: rem(30);
+    column-gap: rem(20);
     flex-direction: row;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     width: auto;
   }
 
@@ -500,7 +370,8 @@
     font-weight: 600;
     line-height: 1.4;
     padding-bottom: rem(3);
-    font-size: rem(20);
+    // font-size: rem(20);
+    font-size: rem(15);
     color: $white;
     transition: all $globalTransition;
     border-bottom: rem(3) solid transparent;
@@ -516,7 +387,7 @@
     }
 
     @include mq(lg) {
-      font-size: rem(16);
+      // font-size: rem(16);
       text-align: left;
       color: $black;
       padding: rem(20) 0 rem(25);
@@ -610,12 +481,13 @@
     }
 
     &::before {
-      margin-left: rem(8);
+      margin-left: rem(6);
       content: "\e90a";
       font-family: "icons";
       transform: rotate(-90deg);
       color: $theme;
-      font-size: rem(20);
+      // font-size: rem(20);
+      font-size: rem(18);
       transition: transform $globalTransition;
     }
 
